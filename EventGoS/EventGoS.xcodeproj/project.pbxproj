@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A43D6C91EE09D147DC7E11D8 /* Pods_EventGoS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8ADA133CAA6ECBC8E4A569A /* Pods_EventGoS.framework */; };
+		F44EA8791EA0C531001E04F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44EA8781EA0C531001E04F9 /* AppDelegate.swift */; };
+		F44EA87B1EA0C531001E04F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44EA87A1EA0C531001E04F9 /* ViewController.swift */; };
+		F44EA87E1EA0C531001E04F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44EA87C1EA0C531001E04F9 /* Main.storyboard */; };
+		F44EA8801EA0C531001E04F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F44EA87F1EA0C531001E04F9 /* Assets.xcassets */; };
+		F44EA8831EA0C531001E04F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44EA8811EA0C531001E04F9 /* LaunchScreen.storyboard */; };
+		F44EA88E1EA0CC2C001E04F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F44EA88D1EA0CC2C001E04F9 /* GoogleService-Info.plist */; };
+		F44EA8951EA0CD6F001E04F9 /* EVLoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44EA8941EA0CD6F001E04F9 /* EVLoginAPI.swift */; };
+		F44EA8971EA0D050001E04F9 /* EVLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44EA8961EA0D050001E04F9 /* EVLoginController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		63689E4A239EA40418DB9981 /* Pods-EventGoS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventGoS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventGoS/Pods-EventGoS.debug.xcconfig"; sourceTree = "<group>"; };
+		B8ADA133CAA6ECBC8E4A569A /* Pods_EventGoS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventGoS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D160B5C9550B32FD45F2A4A8 /* Pods-EventGoS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventGoS.release.xcconfig"; path = "Pods/Target Support Files/Pods-EventGoS/Pods-EventGoS.release.xcconfig"; sourceTree = "<group>"; };
+		F44EA8751EA0C531001E04F9 /* EventGoS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventGoS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F44EA8781EA0C531001E04F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F44EA87A1EA0C531001E04F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F44EA87D1EA0C531001E04F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F44EA87F1EA0C531001E04F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F44EA8821EA0C531001E04F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F44EA8841EA0C531001E04F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F44EA88D1EA0CC2C001E04F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F44EA8941EA0CD6F001E04F9 /* EVLoginAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLoginAPI.swift; sourceTree = "<group>"; };
+		F44EA8961EA0D050001E04F9 /* EVLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLoginController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F44EA8721EA0C531001E04F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A43D6C91EE09D147DC7E11D8 /* Pods_EventGoS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F21766E3F88BD6D0019CE4B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				63689E4A239EA40418DB9981 /* Pods-EventGoS.debug.xcconfig */,
+				D160B5C9550B32FD45F2A4A8 /* Pods-EventGoS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F44EA86C1EA0C531001E04F9 = {
+			isa = PBXGroup;
+			children = (
+				F44EA8771EA0C531001E04F9 /* EventGoS */,
+				F44EA8761EA0C531001E04F9 /* Products */,
+				F21766E3F88BD6D0019CE4B1 /* Pods */,
+				FA606BF38B053AFF77A3F42E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
+		F44EA8761EA0C531001E04F9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F44EA8751EA0C531001E04F9 /* EventGoS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F44EA8771EA0C531001E04F9 /* EventGoS */ = {
+			isa = PBXGroup;
+			children = (
+				F44EA8781EA0C531001E04F9 /* AppDelegate.swift */,
+				F44EA8921EA0CD1F001E04F9 /* Views */,
+				F44EA8911EA0CD18001E04F9 /* Models */,
+				F44EA8901EA0CD14001E04F9 /* Controllers */,
+				F44EA88F1EA0CD0A001E04F9 /* Services */,
+				F44EA8931EA0CD2F001E04F9 /* Support Files */,
+			);
+			path = EventGoS;
+			sourceTree = "<group>";
+		};
+		F44EA88F1EA0CD0A001E04F9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F44EA8941EA0CD6F001E04F9 /* EVLoginAPI.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		F44EA8901EA0CD14001E04F9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F44EA87A1EA0C531001E04F9 /* ViewController.swift */,
+				F44EA8961EA0D050001E04F9 /* EVLoginController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F44EA8911EA0CD18001E04F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F44EA8921EA0CD1F001E04F9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F44EA87C1EA0C531001E04F9 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F44EA8931EA0CD2F001E04F9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F44EA88D1EA0CC2C001E04F9 /* GoogleService-Info.plist */,
+				F44EA87F1EA0C531001E04F9 /* Assets.xcassets */,
+				F44EA8811EA0C531001E04F9 /* LaunchScreen.storyboard */,
+				F44EA8841EA0C531001E04F9 /* Info.plist */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		FA606BF38B053AFF77A3F42E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8ADA133CAA6ECBC8E4A569A /* Pods_EventGoS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F44EA8741EA0C531001E04F9 /* EventGoS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F44EA8871EA0C531001E04F9 /* Build configuration list for PBXNativeTarget "EventGoS" */;
+			buildPhases = (
+				ACD035D2260F59B5E09F2530 /* [CP] Check Pods Manifest.lock */,
+				F44EA8711EA0C531001E04F9 /* Sources */,
+				F44EA8721EA0C531001E04F9 /* Frameworks */,
+				F44EA8731EA0C531001E04F9 /* Resources */,
+				188EB5489AAE5FE58EEBADED /* [CP] Embed Pods Frameworks */,
+				F0E1FAA8794502C9A228E1CF /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EventGoS;
+			productName = EventGoS;
+			productReference = F44EA8751EA0C531001E04F9 /* EventGoS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F44EA86D1EA0C531001E04F9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EV;
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Event Go";
+				TargetAttributes = {
+					F44EA8741EA0C531001E04F9 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = ZPV9U8ULVA;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F44EA8701EA0C531001E04F9 /* Build configuration list for PBXProject "EventGoS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F44EA86C1EA0C531001E04F9;
+			productRefGroup = F44EA8761EA0C531001E04F9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F44EA8741EA0C531001E04F9 /* EventGoS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F44EA8731EA0C531001E04F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F44EA8831EA0C531001E04F9 /* LaunchScreen.storyboard in Resources */,
+				F44EA88E1EA0CC2C001E04F9 /* GoogleService-Info.plist in Resources */,
+				F44EA8801EA0C531001E04F9 /* Assets.xcassets in Resources */,
+				F44EA87E1EA0C531001E04F9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		188EB5489AAE5FE58EEBADED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EventGoS/Pods-EventGoS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACD035D2260F59B5E09F2530 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F0E1FAA8794502C9A228E1CF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EventGoS/Pods-EventGoS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F44EA8711EA0C531001E04F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F44EA8951EA0CD6F001E04F9 /* EVLoginAPI.swift in Sources */,
+				F44EA87B1EA0C531001E04F9 /* ViewController.swift in Sources */,
+				F44EA8971EA0D050001E04F9 /* EVLoginController.swift in Sources */,
+				F44EA8791EA0C531001E04F9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F44EA87C1EA0C531001E04F9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F44EA87D1EA0C531001E04F9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F44EA8811EA0C531001E04F9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F44EA8821EA0C531001E04F9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F44EA8851EA0C531001E04F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F44EA8861EA0C531001E04F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F44EA8881EA0C531001E04F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63689E4A239EA40418DB9981 /* Pods-EventGoS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZPV9U8ULVA;
+				INFOPLIST_FILE = EventGoS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eventgo.supplier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F44EA8891EA0C531001E04F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D160B5C9550B32FD45F2A4A8 /* Pods-EventGoS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZPV9U8ULVA;
+				INFOPLIST_FILE = EventGoS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eventgo.supplier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F44EA8701EA0C531001E04F9 /* Build configuration list for PBXProject "EventGoS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F44EA8851EA0C531001E04F9 /* Debug */,
+				F44EA8861EA0C531001E04F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F44EA8871EA0C531001E04F9 /* Build configuration list for PBXNativeTarget "EventGoS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F44EA8881EA0C531001E04F9 /* Debug */,
+				F44EA8891EA0C531001E04F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F44EA86D1EA0C531001E04F9 /* Project object */;
+}

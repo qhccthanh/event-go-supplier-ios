@@ -1,0 +1,26 @@
+# Uncomment the next line to define a global platform for your project
+ platform :ios, '9.0'
+
+target 'EventGoS' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'Alamofire'
+  pod 'AFNetworking', '~> 3.1'
+  pod 'MBProgressHUD', '~> 1.0'
+  pod 'Firebase/Core'
+  pod 'Firebase/AdMob'
+  pod 'Firebase/Crash'
+  pod 'Firebase/Storage'
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
+  pod 'GoogleMaps'
+  pod 'AnimatedTextInput', '~> 0.4'
+  pod 'ChameleonFramework', '~> 2.1'
+  pod 'SwiftyJSON'
+  pod 'ReactiveSwift'
+  pod 'ReactiveCocoa'
+  pod 'ILLoginKit', '~> 0.1'
+
+  # Pods for EventGoS
+
+end
