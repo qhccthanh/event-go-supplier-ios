@@ -8,30 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		A43D6C91EE09D147DC7E11D8 /* Pods_EventGoS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8ADA133CAA6ECBC8E4A569A /* Pods_EventGoS.framework */; };
+		D00ED29F1EA2415700FC212A /* EVLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00ED29D1EA2415700FC212A /* EVLoginController.swift */; };
+		D00ED2A01EA2415700FC212A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00ED29E1EA2415700FC212A /* ViewController.swift */; };
+		D00ED2A31EA2418A00FC212A /* EVLoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00ED2A21EA2418A00FC212A /* EVLoginAPI.swift */; };
 		F44EA8791EA0C531001E04F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44EA8781EA0C531001E04F9 /* AppDelegate.swift */; };
-		F44EA87B1EA0C531001E04F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44EA87A1EA0C531001E04F9 /* ViewController.swift */; };
 		F44EA87E1EA0C531001E04F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44EA87C1EA0C531001E04F9 /* Main.storyboard */; };
 		F44EA8801EA0C531001E04F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F44EA87F1EA0C531001E04F9 /* Assets.xcassets */; };
 		F44EA8831EA0C531001E04F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44EA8811EA0C531001E04F9 /* LaunchScreen.storyboard */; };
 		F44EA88E1EA0CC2C001E04F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F44EA88D1EA0CC2C001E04F9 /* GoogleService-Info.plist */; };
-		F44EA8951EA0CD6F001E04F9 /* EVLoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44EA8941EA0CD6F001E04F9 /* EVLoginAPI.swift */; };
-		F44EA8971EA0D050001E04F9 /* EVLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44EA8961EA0D050001E04F9 /* EVLoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		63689E4A239EA40418DB9981 /* Pods-EventGoS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventGoS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventGoS/Pods-EventGoS.debug.xcconfig"; sourceTree = "<group>"; };
 		B8ADA133CAA6ECBC8E4A569A /* Pods_EventGoS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventGoS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D00ED29D1EA2415700FC212A /* EVLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLoginController.swift; sourceTree = "<group>"; };
+		D00ED29E1EA2415700FC212A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D00ED2A21EA2418A00FC212A /* EVLoginAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLoginAPI.swift; sourceTree = "<group>"; };
 		D160B5C9550B32FD45F2A4A8 /* Pods-EventGoS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventGoS.release.xcconfig"; path = "Pods/Target Support Files/Pods-EventGoS/Pods-EventGoS.release.xcconfig"; sourceTree = "<group>"; };
 		F44EA8751EA0C531001E04F9 /* EventGoS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventGoS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44EA8781EA0C531001E04F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F44EA87A1EA0C531001E04F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F44EA87D1EA0C531001E04F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F44EA87F1EA0C531001E04F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F44EA8821EA0C531001E04F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F44EA8841EA0C531001E04F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F44EA88D1EA0CC2C001E04F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F44EA8941EA0CD6F001E04F9 /* EVLoginAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLoginAPI.swift; sourceTree = "<group>"; };
-		F44EA8961EA0D050001E04F9 /* EVLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +46,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D00ED29C1EA2415700FC212A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D00ED29D1EA2415700FC212A /* EVLoginController.swift */,
+				D00ED29E1EA2415700FC212A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D00ED2A11EA2418A00FC212A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D00ED2A21EA2418A00FC212A /* EVLoginAPI.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		F21766E3F88BD6D0019CE4B1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,30 +95,13 @@
 			isa = PBXGroup;
 			children = (
 				F44EA8781EA0C531001E04F9 /* AppDelegate.swift */,
+				D00ED29C1EA2415700FC212A /* Controller */,
 				F44EA8921EA0CD1F001E04F9 /* Views */,
 				F44EA8911EA0CD18001E04F9 /* Models */,
-				F44EA8901EA0CD14001E04F9 /* Controllers */,
-				F44EA88F1EA0CD0A001E04F9 /* Services */,
+				D00ED2A11EA2418A00FC212A /* Service */,
 				F44EA8931EA0CD2F001E04F9 /* Support Files */,
 			);
 			path = EventGoS;
-			sourceTree = "<group>";
-		};
-		F44EA88F1EA0CD0A001E04F9 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				F44EA8941EA0CD6F001E04F9 /* EVLoginAPI.swift */,
-			);
-			name = Services;
-			sourceTree = "<group>";
-		};
-		F44EA8901EA0CD14001E04F9 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				F44EA87A1EA0C531001E04F9 /* ViewController.swift */,
-				F44EA8961EA0D050001E04F9 /* EVLoginController.swift */,
-			);
-			name = Controllers;
 			sourceTree = "<group>";
 		};
 		F44EA8911EA0CD18001E04F9 /* Models */ = {
@@ -264,9 +264,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F44EA8951EA0CD6F001E04F9 /* EVLoginAPI.swift in Sources */,
-				F44EA87B1EA0C531001E04F9 /* ViewController.swift in Sources */,
-				F44EA8971EA0D050001E04F9 /* EVLoginController.swift in Sources */,
+				D00ED29F1EA2415700FC212A /* EVLoginController.swift in Sources */,
+				D00ED2A31EA2418A00FC212A /* EVLoginAPI.swift in Sources */,
+				D00ED2A01EA2415700FC212A /* ViewController.swift in Sources */,
 				F44EA8791EA0C531001E04F9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
