@@ -21,6 +21,7 @@ target 'EventGoS' do
   pod 'ReactiveCocoa'
   pod 'ILLoginKit', '~> 0.1'
   pod 'AnimatedTextInput', '~> 0.4'
+  pod 'DKImagePickerController'
 
   # Pods for EventGoS
 
