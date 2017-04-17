@@ -20,6 +20,7 @@ target 'EventGoS' do
   pod 'ReactiveSwift'
   pod 'ReactiveCocoa'
   pod 'ILLoginKit', '~> 0.1'
+  pod 'AnimatedTextInput', '~> 0.4'
 
   # Pods for EventGoS
 

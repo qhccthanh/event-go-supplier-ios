@@ -11,6 +11,12 @@
 		D00ED29F1EA2415700FC212A /* EVLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00ED29D1EA2415700FC212A /* EVLoginController.swift */; };
 		D00ED2A01EA2415700FC212A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00ED29E1EA2415700FC212A /* ViewController.swift */; };
 		D00ED2A31EA2418A00FC212A /* EVLoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00ED2A21EA2418A00FC212A /* EVLoginAPI.swift */; };
+		D0A836871EA4B82000AE890C /* EVInfoStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A836861EA4B82000AE890C /* EVInfoStoreViewController.swift */; };
+		D0A8368A1EA4BDFB00AE890C /* EVEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A836891EA4BDFB00AE890C /* EVEnum.swift */; };
+		D0A8368E1EA4BFCB00AE890C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8368B1EA4BFCB00AE890C /* Constants.swift */; };
+		D0A8368F1EA4BFCB00AE890C /* Marco.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8368C1EA4BFCB00AE890C /* Marco.swift */; };
+		D0A836901EA4BFCB00AE890C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8368D1EA4BFCB00AE890C /* UIView+Extension.swift */; };
+		D0A836931EA4C34500AE890C /* EVInfoStoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A836921EA4C34500AE890C /* EVInfoStoreCollectionViewCell.swift */; };
 		F44EA8791EA0C531001E04F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44EA8781EA0C531001E04F9 /* AppDelegate.swift */; };
 		F44EA87E1EA0C531001E04F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44EA87C1EA0C531001E04F9 /* Main.storyboard */; };
 		F44EA8801EA0C531001E04F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F44EA87F1EA0C531001E04F9 /* Assets.xcassets */; };
@@ -24,6 +30,12 @@
 		D00ED29D1EA2415700FC212A /* EVLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLoginController.swift; sourceTree = "<group>"; };
 		D00ED29E1EA2415700FC212A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D00ED2A21EA2418A00FC212A /* EVLoginAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLoginAPI.swift; sourceTree = "<group>"; };
+		D0A836861EA4B82000AE890C /* EVInfoStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVInfoStoreViewController.swift; sourceTree = "<group>"; };
+		D0A836891EA4BDFB00AE890C /* EVEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVEnum.swift; sourceTree = "<group>"; };
+		D0A8368B1EA4BFCB00AE890C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D0A8368C1EA4BFCB00AE890C /* Marco.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marco.swift; sourceTree = "<group>"; };
+		D0A8368D1EA4BFCB00AE890C /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		D0A836921EA4C34500AE890C /* EVInfoStoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVInfoStoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		D160B5C9550B32FD45F2A4A8 /* Pods-EventGoS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventGoS.release.xcconfig"; path = "Pods/Target Support Files/Pods-EventGoS/Pods-EventGoS.release.xcconfig"; sourceTree = "<group>"; };
 		F44EA8751EA0C531001E04F9 /* EventGoS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventGoS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44EA8781EA0C531001E04F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +63,7 @@
 			children = (
 				D00ED29D1EA2415700FC212A /* EVLoginController.swift */,
 				D00ED29E1EA2415700FC212A /* ViewController.swift */,
+				D0A836861EA4B82000AE890C /* EVInfoStoreViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -61,6 +74,25 @@
 				D00ED2A21EA2418A00FC212A /* EVLoginAPI.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		D0A836881EA4BDFB00AE890C /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				D0A8368B1EA4BFCB00AE890C /* Constants.swift */,
+				D0A8368C1EA4BFCB00AE890C /* Marco.swift */,
+				D0A8368D1EA4BFCB00AE890C /* UIView+Extension.swift */,
+				D0A836891EA4BDFB00AE890C /* EVEnum.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		D0A836911EA4C30F00AE890C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D0A836921EA4C34500AE890C /* EVInfoStoreCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		F21766E3F88BD6D0019CE4B1 /* Pods */ = {
@@ -94,6 +126,8 @@
 		F44EA8771EA0C531001E04F9 /* EventGoS */ = {
 			isa = PBXGroup;
 			children = (
+				D0A836911EA4C30F00AE890C /* Cell */,
+				D0A836881EA4BDFB00AE890C /* Help */,
 				F44EA8781EA0C531001E04F9 /* AppDelegate.swift */,
 				D00ED29C1EA2415700FC212A /* Controller */,
 				F44EA8921EA0CD1F001E04F9 /* Views */,
@@ -264,10 +298,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A8368F1EA4BFCB00AE890C /* Marco.swift in Sources */,
+				D0A836871EA4B82000AE890C /* EVInfoStoreViewController.swift in Sources */,
 				D00ED29F1EA2415700FC212A /* EVLoginController.swift in Sources */,
+				D0A836931EA4C34500AE890C /* EVInfoStoreCollectionViewCell.swift in Sources */,
+				D0A836901EA4BFCB00AE890C /* UIView+Extension.swift in Sources */,
 				D00ED2A31EA2418A00FC212A /* EVLoginAPI.swift in Sources */,
 				D00ED2A01EA2415700FC212A /* ViewController.swift in Sources */,
+				D0A8368E1EA4BFCB00AE890C /* Constants.swift in Sources */,
 				F44EA8791EA0C531001E04F9 /* AppDelegate.swift in Sources */,
+				D0A8368A1EA4BDFB00AE890C /* EVEnum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
