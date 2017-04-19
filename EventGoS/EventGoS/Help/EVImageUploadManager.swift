@@ -50,7 +50,11 @@ class EVImageUploadManager: NSObject {
             EVImageServices.shareInstance.uploadImage(imageStore: imageStore, callback: { (store) in
                 self.progressBlock?(index)
                 let indexNext = index + 1
-                self.storeCache.append(store)
+                
+                if let store = store {
+                    self.storeCache.append(store)
+                }
+                
                 self.uploadImage(at: indexNext)
             })
         })

@@ -61,7 +61,11 @@ class EVListSupplierImageCollectionViewController: UICollectionViewController, U
         super.viewWillAppear(animated)
         
         EVImageServices.shareInstance.getAllSupplierImage { (result) in
-            self.listSupplierImage = result.listImage
+            
+            if let result = result {
+                self.listSupplierImage = result.listImage
+            }
+            
             dispatch_main_queue_safe {
                 self.collectionView?.reloadData()
             }
@@ -82,7 +86,11 @@ class EVListSupplierImageCollectionViewController: UICollectionViewController, U
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? EVInfoStoreCollectionViewCell else {return}
+        
+        guard let cell = collectionView.cellForItem(at: indexPath) as? EVInfoStoreCollectionViewCell else {
+            
+            return
+        }
         
         if indexPath.section == 0 {
             var model = listSupplierImage[indexPath.row]
@@ -113,13 +121,13 @@ class EVListSupplierImageCollectionViewController: UICollectionViewController, U
                             self.collectionView?.reloadData()
                         })
                     }
-//                    
-//                    EVImageUploadManager.manager.uploadImage(assets, progressBlock: { (index) in
-//                        
-//                    }, successBlock: { (imageStores) in
-//                        print(imageStores)
+                    
+                    EVImageUploadManager.manager.uploadImage(assets, progressBlock: { (index) in
+                        
+                    }, successBlock: { (imageStores) in
+                        print(imageStores)
 //                        self.listImageSelected = imageStores
-//                    })
+                    })
                 }
                 
                 self.present(pickerController, animated: true) {}
