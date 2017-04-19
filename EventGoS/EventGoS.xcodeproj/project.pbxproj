@@ -17,6 +17,12 @@
 		D0A8368F1EA4BFCB00AE890C /* Marco.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8368C1EA4BFCB00AE890C /* Marco.swift */; };
 		D0A836901EA4BFCB00AE890C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8368D1EA4BFCB00AE890C /* UIView+Extension.swift */; };
 		D0A836931EA4C34500AE890C /* EVInfoStoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A836921EA4C34500AE890C /* EVInfoStoreCollectionViewCell.swift */; };
+		D0A836951EA4FA9900AE890C /* EVListStoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A836941EA4FA9900AE890C /* EVListStoreTableViewController.swift */; };
+		D0A836971EA4FFB200AE890C /* EVItemStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A836961EA4FFB200AE890C /* EVItemStoreTableViewCell.swift */; };
+		D0BE90401EA5F224000950B3 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BE903F1EA5F224000950B3 /* ImageStore.swift */; };
+		D0BE90421EA5F43E000950B3 /* EVImageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BE90411EA5F43E000950B3 /* EVImageServices.swift */; };
+		D0BE907F1EA60F41000950B3 /* EVListSupplierImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BE907E1EA60F41000950B3 /* EVListSupplierImageCollectionViewController.swift */; };
+		D0BE90841EA66778000950B3 /* EVImageUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BE90831EA66778000950B3 /* EVImageUploadManager.swift */; };
 		F44EA8791EA0C531001E04F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44EA8781EA0C531001E04F9 /* AppDelegate.swift */; };
 		F44EA87E1EA0C531001E04F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44EA87C1EA0C531001E04F9 /* Main.storyboard */; };
 		F44EA8801EA0C531001E04F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F44EA87F1EA0C531001E04F9 /* Assets.xcassets */; };
@@ -36,6 +42,12 @@
 		D0A8368C1EA4BFCB00AE890C /* Marco.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marco.swift; sourceTree = "<group>"; };
 		D0A8368D1EA4BFCB00AE890C /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D0A836921EA4C34500AE890C /* EVInfoStoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVInfoStoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0A836941EA4FA9900AE890C /* EVListStoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVListStoreTableViewController.swift; sourceTree = "<group>"; };
+		D0A836961EA4FFB200AE890C /* EVItemStoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVItemStoreTableViewCell.swift; sourceTree = "<group>"; };
+		D0BE903F1EA5F224000950B3 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
+		D0BE90411EA5F43E000950B3 /* EVImageServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVImageServices.swift; sourceTree = "<group>"; };
+		D0BE907E1EA60F41000950B3 /* EVListSupplierImageCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVListSupplierImageCollectionViewController.swift; sourceTree = "<group>"; };
+		D0BE90831EA66778000950B3 /* EVImageUploadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVImageUploadManager.swift; sourceTree = "<group>"; };
 		D160B5C9550B32FD45F2A4A8 /* Pods-EventGoS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventGoS.release.xcconfig"; path = "Pods/Target Support Files/Pods-EventGoS/Pods-EventGoS.release.xcconfig"; sourceTree = "<group>"; };
 		F44EA8751EA0C531001E04F9 /* EventGoS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventGoS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44EA8781EA0C531001E04F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +76,8 @@
 				D00ED29D1EA2415700FC212A /* EVLoginController.swift */,
 				D00ED29E1EA2415700FC212A /* ViewController.swift */,
 				D0A836861EA4B82000AE890C /* EVInfoStoreViewController.swift */,
+				D0A836941EA4FA9900AE890C /* EVListStoreTableViewController.swift */,
+				D0BE907E1EA60F41000950B3 /* EVListSupplierImageCollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -72,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				D00ED2A21EA2418A00FC212A /* EVLoginAPI.swift */,
+				D0BE90411EA5F43E000950B3 /* EVImageServices.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -83,6 +98,7 @@
 				D0A8368C1EA4BFCB00AE890C /* Marco.swift */,
 				D0A8368D1EA4BFCB00AE890C /* UIView+Extension.swift */,
 				D0A836891EA4BDFB00AE890C /* EVEnum.swift */,
+				D0BE90831EA66778000950B3 /* EVImageUploadManager.swift */,
 			);
 			path = Help;
 			sourceTree = "<group>";
@@ -91,8 +107,17 @@
 			isa = PBXGroup;
 			children = (
 				D0A836921EA4C34500AE890C /* EVInfoStoreCollectionViewCell.swift */,
+				D0A836961EA4FFB200AE890C /* EVItemStoreTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		D0BE903E1EA5F1F1000950B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE903F1EA5F224000950B3 /* ImageStore.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F21766E3F88BD6D0019CE4B1 /* Pods */ = {
@@ -126,6 +151,7 @@
 		F44EA8771EA0C531001E04F9 /* EventGoS */ = {
 			isa = PBXGroup;
 			children = (
+				D0BE903E1EA5F1F1000950B3 /* Model */,
 				D0A836911EA4C30F00AE890C /* Cell */,
 				D0A836881EA4BDFB00AE890C /* Help */,
 				F44EA8781EA0C531001E04F9 /* AppDelegate.swift */,
@@ -208,7 +234,7 @@
 				TargetAttributes = {
 					F44EA8741EA0C531001E04F9 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = ZPV9U8ULVA;
+						DevelopmentTeam = A2NR73B2X5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -298,15 +324,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A836951EA4FA9900AE890C /* EVListStoreTableViewController.swift in Sources */,
 				D0A8368F1EA4BFCB00AE890C /* Marco.swift in Sources */,
 				D0A836871EA4B82000AE890C /* EVInfoStoreViewController.swift in Sources */,
+				D0BE90841EA66778000950B3 /* EVImageUploadManager.swift in Sources */,
 				D00ED29F1EA2415700FC212A /* EVLoginController.swift in Sources */,
 				D0A836931EA4C34500AE890C /* EVInfoStoreCollectionViewCell.swift in Sources */,
 				D0A836901EA4BFCB00AE890C /* UIView+Extension.swift in Sources */,
 				D00ED2A31EA2418A00FC212A /* EVLoginAPI.swift in Sources */,
+				D0A836971EA4FFB200AE890C /* EVItemStoreTableViewCell.swift in Sources */,
+				D0BE90401EA5F224000950B3 /* ImageStore.swift in Sources */,
 				D00ED2A01EA2415700FC212A /* ViewController.swift in Sources */,
 				D0A8368E1EA4BFCB00AE890C /* Constants.swift in Sources */,
 				F44EA8791EA0C531001E04F9 /* AppDelegate.swift in Sources */,
+				D0BE907F1EA60F41000950B3 /* EVListSupplierImageCollectionViewController.swift in Sources */,
+				D0BE90421EA5F43E000950B3 /* EVImageServices.swift in Sources */,
 				D0A8368A1EA4BDFB00AE890C /* EVEnum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,10 +465,11 @@
 			baseConfigurationReference = 63689E4A239EA40418DB9981 /* Pods-EventGoS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZPV9U8ULVA;
+				DEVELOPMENT_TEAM = A2NR73B2X5;
 				INFOPLIST_FILE = EventGoS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.eventgo.supplier;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eventgo.supplier1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -447,10 +480,11 @@
 			baseConfigurationReference = D160B5C9550B32FD45F2A4A8 /* Pods-EventGoS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZPV9U8ULVA;
+				DEVELOPMENT_TEAM = A2NR73B2X5;
 				INFOPLIST_FILE = EventGoS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.eventgo.supplier;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eventgo.supplier1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

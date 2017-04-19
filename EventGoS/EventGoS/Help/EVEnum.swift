@@ -14,7 +14,7 @@ enum EVCheckUserEnumType: String {
     case updatedInfo
 }
 
-enum EVUpdateResult: String {
+enum EVResult: String {
     case success
     case faillure
 }
@@ -23,6 +23,8 @@ enum EVImage: String {
     
     case backgroundColor = "backgroundColor"
     case ic_add_place = "ic_add_place"
+    case ic_dontCheck = "ic_dontCheck"
+    case ic_checked = "ic_checked"
 }
 
 extension EVImage {
@@ -34,19 +36,20 @@ extension EVImage {
 
 enum EVController: String {
 
-    case viewController = "EVViewController"
-    case logIn = "EVLogInViewController"
-    case mainGame = "EVMainGameController"
-    case defaultVC = "EVDefaultControllerViewController"
-    case userInfo = "EVUpdateUserInfoViewController"
-    case popOver = "EVPopOverController"
-    case home = "EVHomeViewController"
-    
+//    case viewController = "EVViewController"
+//    case logIn = "EVLogInViewController"
+//    case mainGame = "EVMainGameController"
+//    case defaultVC = "EVDefaultControllerViewController"
+//    case userInfo = "EVUpdateUserInfoViewController"
+//    case popOver = "EVPopOverController"
+//    case home = "EVHomeViewController"
+    case infoStore = "EVInfoStoreViewController"
+    case listImageStore = "EVListSupplierImageCollectionViewController"
 }
 extension EVController {
     
     func getController() -> UIViewController {
-        let controller = StoryBoard.DemoST.viewController(self.rawValue)
+        let controller = StoryBoard.Main.viewController(self.rawValue)
         return controller 
     }
     

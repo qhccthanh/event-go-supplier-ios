@@ -52,7 +52,7 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     // Handle login via your API
     override func login(email: String, password: String) {
         print("Login with: email =\(email) password = \(password)")
-        EVLoginAPI.shareInstance.signinWith(username: "supplier_1", password: "supplier_1")
+       
     }
     
     // Handle signup via your API

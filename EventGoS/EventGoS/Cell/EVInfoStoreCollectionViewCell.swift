@@ -10,5 +10,6 @@ import UIKit
 
 class EVInfoStoreCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageInfoStore: UIImageView!
+    @IBOutlet weak var imageSelectedView: UIImageView!
     
 }

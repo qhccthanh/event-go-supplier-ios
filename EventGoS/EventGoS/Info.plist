@@ -27,6 +27,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Xin phép sử dụng máy ảnh</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Allow open your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Xin phép sử dụng dịch vụ vị trí</string>
 	<key>NSPhotoLibraryUsageDescription</key>

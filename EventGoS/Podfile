@@ -22,7 +22,7 @@ target 'EventGoS' do
   pod 'ILLoginKit', '~> 0.1'
   pod 'AnimatedTextInput', '~> 0.4'
   pod 'DKImagePickerController'
-
+  pod 'AlamofireImage', '~> 3.1'
   # Pods for EventGoS
 
 end

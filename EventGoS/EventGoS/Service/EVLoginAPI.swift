@@ -17,6 +17,7 @@ enum EVSupplierAPI: String {
     case login = "suppliers/signin"
     case me = "suppliers/me"
     case location = "locations"
+    case image = "images"
     
     func path() -> String {
         return kBaseUrl.appending(self.rawValue)
@@ -67,12 +68,16 @@ class BaseService {
 
 class EVLoginAPI: BaseService {
     internal static let shareInstance = EVLoginAPI()
-    func signinWith(username: String, password: String){
+    func signinWith(username: String, password: String, callback: @escaping (_ result: EVResult)-> Void){
         var params = Dictionary<String, Any>()
         params["username"] = username
         params["password"] = password
         sessionManager.request(EVSupplierAPI.login.path(), method: .post, parameters: params, encoding: JSONEncoding.default, headers: self.headers).responseJSON { (respone) in
-            print(respone)
+            if respone.response?.statusCode == 200 {
+                callback(EVResult.success)
+            }else {
+                callback(EVResult.faillure)
+            }
         }
     }
     
