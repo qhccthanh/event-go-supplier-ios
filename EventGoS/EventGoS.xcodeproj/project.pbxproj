@@ -17,7 +17,7 @@
 		D0A8368F1EA4BFCB00AE890C /* Marco.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8368C1EA4BFCB00AE890C /* Marco.swift */; };
 		D0A836901EA4BFCB00AE890C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8368D1EA4BFCB00AE890C /* UIView+Extension.swift */; };
 		D0A836931EA4C34500AE890C /* EVInfoStoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A836921EA4C34500AE890C /* EVInfoStoreCollectionViewCell.swift */; };
-		D0A836951EA4FA9900AE890C /* EVListStoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A836941EA4FA9900AE890C /* EVListStoreTableViewController.swift */; };
+		D0A836951EA4FA9900AE890C /* EVStoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A836941EA4FA9900AE890C /* EVStoresViewController.swift */; };
 		D0A836971EA4FFB200AE890C /* EVItemStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A836961EA4FFB200AE890C /* EVItemStoreTableViewCell.swift */; };
 		D0BE90421EA5F43E000950B3 /* EVImageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BE90411EA5F43E000950B3 /* EVImageServices.swift */; };
 		D0BE907F1EA60F41000950B3 /* EVImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BE907E1EA60F41000950B3 /* EVImagesViewController.swift */; };
@@ -61,6 +61,7 @@
 		F4B4FFE61EA93213007DEE79 /* EVSupplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4FFE41EA93213007DEE79 /* EVSupplier.swift */; };
 		F4B4FFE71EA93213007DEE79 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4FFE51EA93213007DEE79 /* ImageStore.swift */; };
 		F4B4FFE91EA9360D007DEE79 /* EVExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4FFE81EA9360D007DEE79 /* EVExtension.swift */; };
+		F4B4FFEB1EA9387D007DEE79 /* EVImageStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4FFEA1EA9387D007DEE79 /* EVImageStoreCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +76,7 @@
 		D0A8368C1EA4BFCB00AE890C /* Marco.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marco.swift; sourceTree = "<group>"; };
 		D0A8368D1EA4BFCB00AE890C /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D0A836921EA4C34500AE890C /* EVInfoStoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVInfoStoreCollectionViewCell.swift; sourceTree = "<group>"; };
-		D0A836941EA4FA9900AE890C /* EVListStoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVListStoreTableViewController.swift; sourceTree = "<group>"; };
+		D0A836941EA4FA9900AE890C /* EVStoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVStoresViewController.swift; sourceTree = "<group>"; };
 		D0A836961EA4FFB200AE890C /* EVItemStoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVItemStoreTableViewCell.swift; sourceTree = "<group>"; };
 		D0BE90411EA5F43E000950B3 /* EVImageServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVImageServices.swift; sourceTree = "<group>"; };
 		D0BE907E1EA60F41000950B3 /* EVImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVImagesViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 		F4B4FFE41EA93213007DEE79 /* EVSupplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EVSupplier.swift; path = Model/EVSupplier.swift; sourceTree = "<group>"; };
 		F4B4FFE51EA93213007DEE79 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageStore.swift; path = Model/ImageStore.swift; sourceTree = "<group>"; };
 		F4B4FFE81EA9360D007DEE79 /* EVExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVExtension.swift; sourceTree = "<group>"; };
+		F4B4FFEA1EA9387D007DEE79 /* EVImageStoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVImageStoreCell.swift; sourceTree = "<group>"; };
 		F4BE9B5F1EA910A400F856D9 /* EventGoS-BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EventGoS-BridgeHeader.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,7 +145,7 @@
 				D00ED29D1EA2415700FC212A /* EVLoginController.swift */,
 				D00ED29E1EA2415700FC212A /* EVMainViewController.swift */,
 				D0A836861EA4B82000AE890C /* EVInfoStoreViewController.swift */,
-				D0A836941EA4FA9900AE890C /* EVListStoreTableViewController.swift */,
+				D0A836941EA4FA9900AE890C /* EVStoresViewController.swift */,
 				D0BE907E1EA60F41000950B3 /* EVImagesViewController.swift */,
 				F4B4FFE01EA9298E007DEE79 /* EVMenuViewController.swift */,
 			);
@@ -244,6 +246,7 @@
 				F4B4FFD91EA928E2007DEE79 /* QuickTableViewController */,
 				F4B4FFA31EA91EFC007DEE79 /* LoginKit */,
 				F44EA87C1EA0C531001E04F9 /* Main.storyboard */,
+				F4B4FFEA1EA9387D007DEE79 /* EVImageStoreCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -473,9 +476,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4B4FFD31EA91EFC007DEE79 /* UITextField+fixCaretPosition.swift in Sources */,
-				D0A836951EA4FA9900AE890C /* EVListStoreTableViewController.swift in Sources */,
+				D0A836951EA4FA9900AE890C /* EVStoresViewController.swift in Sources */,
 				D0A8368F1EA4BFCB00AE890C /* Marco.swift in Sources */,
 				D0A836871EA4B82000AE890C /* EVInfoStoreViewController.swift in Sources */,
+				F4B4FFEB1EA9387D007DEE79 /* EVImageStoreCell.swift in Sources */,
 				F4B4FFCB1EA91EFC007DEE79 /* InitialViewController.swift in Sources */,
 				F4B4FFE71EA93213007DEE79 /* ImageStore.swift in Sources */,
 				D0BE90841EA66778000950B3 /* EVImageUploadManager.swift in Sources */,

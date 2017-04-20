@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct ImageStore {
+class ImageStore: NSObject {
     
     var id: String = ""
     var supplierId: String = ""
