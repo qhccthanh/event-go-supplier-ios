@@ -19,16 +19,16 @@ class EVInfoStoreViewController: UIViewController {
     @IBOutlet weak var openTime: AnimatedTextInput!
     @IBOutlet weak var closeTime: AnimatedTextInput!
     @IBOutlet weak var address: AnimatedTextInput!
-//    @IBOutlet weak var longitude: AnimatedTextInput!
     @IBOutlet weak var collectionView: UICollectionView!
+    
     fileprivate let reuseIdentifier = "cell"
     var listImageSelected:Array<UIImage> = Array<UIImage>()
     var listImageStore: Array<ImageStore> = Array<ImageStore>()
     var didFindMyLocation = false
     var locationManager = CLLocationManager()
     var alreadyUpdatedLocation = false
-    let ev = EVController.listImageStore.getController() as? EVListSupplierImageCollectionViewController
-
+//    let ev: EVImagesViewController? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -44,8 +44,7 @@ class EVInfoStoreViewController: UIViewController {
         }
         
       
-        ev?.delegate = self
-        
+//        ev?.delegate = self
     }
     
     func setupView(){
@@ -56,7 +55,7 @@ class EVInfoStoreViewController: UIViewController {
         closeTime.placeHolderText = "Giờ đóng cửa"
 //        latitude.placeHolderText = "Kinh độ"
 //        longitude.placeHolderText = "Vĩ độ"
-        address.placeHolderText = "Địa chỉ"
+//        address.placeHolderText = "Địa chỉ"
 //        listImageSelected.append( EVImage.ic_add_place.icon())
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -108,7 +107,7 @@ extension EVInfoStoreViewController: UICollectionViewDelegate, UICollectionViewD
         guard let _ = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? EVInfoStoreCollectionViewCell else {return}
         
         if (indexPath.section == 0 && indexPath.row == 0) {
-            self.navigationController?.pushViewController(ev!, animated: true)
+//            self.navigationController?.pushViewController(ev!, animated: true)
         }
        
         

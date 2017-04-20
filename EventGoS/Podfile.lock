@@ -15,20 +15,17 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Alamofire (4.4.0)
-  - AnimatedTextInput (0.4.0)
-  - Bolts (1.8.4):
-    - Bolts/AppLinks (= 1.8.4)
-    - Bolts/Tasks (= 1.8.4)
-  - Bolts/AppLinks (1.8.4):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.8.4)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
+  - AnimatedTextInput (0.5.0)
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
-  - FBSDKCoreKit (4.21.0):
-    - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.18.0):
-    - FBSDKCoreKit
+  - DKImagePickerController (3.5.1):
+    - DKImagePickerController/Camera (= 3.5.1)
+    - DKImagePickerController/ImageManager (= 3.5.1)
+  - DKImagePickerController/Camera (3.5.1)
+  - DKImagePickerController/ImageManager (3.5.1)
   - Firebase/AdMob (3.16.0):
     - Firebase/Core
     - Google-Mobile-Ads-SDK (= 7.19.1)
@@ -75,24 +72,22 @@ PODS:
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GTMSessionFetcher/Core (1.1.9)
-  - ILLoginKit (0.1.0):
-    - FBSDKLoginKit (= 4.18.0)
-    - Validator (~> 2.1.1)
   - MBProgressHUD (1.0.0)
   - Protobuf (3.2.1)
-  - ReactiveCocoa (5.0.3):
-    - ReactiveSwift (~> 1.1)
-  - ReactiveSwift (1.1.1):
-    - Result (~> 3.2)
-  - Result (3.2.1)
+  - RxCocoa (3.4.0):
+    - RxSwift (~> 3.4)
+  - RxSwift (3.4.0)
+  - SnapKit (3.2.0)
   - SwiftyJSON (3.1.4)
   - Validator (2.1.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
   - Alamofire
+  - AlamofireImage (~> 3.1)
   - AnimatedTextInput (~> 0.4)
   - ChameleonFramework (~> 2.1)
+  - DKImagePickerController
   - Firebase/AdMob
   - Firebase/Core
   - Firebase/Crash
@@ -100,20 +95,20 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
-  - ILLoginKit (~> 0.1)
   - MBProgressHUD (~> 1.0)
-  - ReactiveCocoa
-  - ReactiveSwift
+  - RxCocoa (~> 3.0)
+  - RxSwift (~> 3.0)
+  - SnapKit (~> 3.2.0)
   - SwiftyJSON
+  - Validator (~> 2.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  AnimatedTextInput: 283f38c106399b809b126f80af79fca9f4aabfd6
-  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  AnimatedTextInput: 876d307ced52d9973c21c91d8b877170ae0c598c
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  FBSDKCoreKit: 8a372ab194b5c7c26355c1920ef52dbeb44bc222
-  FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
+  DKImagePickerController: 8db7e76a88a7a66a893ba30e935cc4c9bb7ed335
   Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
   FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
@@ -126,15 +121,14 @@ SPEC CHECKSUMS:
   GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
-  ILLoginKit: ff473712662d92448553967d412ba201e61fbad0
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Protobuf: 2ccbaf193f6c65adc67745453ca0c13234c32796
-  ReactiveCocoa: 066a855f613fb72f68258771095805fdb10312d2
-  ReactiveSwift: 2489549e3231a6ff68ec99f3d320bb264f10ba0a
-  Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
+  RxCocoa: d14ef6b6029e1ddc6e966508c09289090de68ff9
+  RxSwift: 3789a1af753002a14edecdb698a2424624296a9c
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: aff9c2849b22b25f11b45816e13bbe9cf0591b06
+PODFILE CHECKSUM: ace6d316b89b223993510f9722e2a04de5bc9ec8
 
 COCOAPODS: 1.2.0

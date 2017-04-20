@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import ILLoginKit
+import MBProgressHUD
 
-class LoginCoordinator: ILLoginKit.LoginCoordinator {
+class LoginEVCoordinator: LoginCoordinator {
     
     // MARK: - LoginCoordinator
     
@@ -28,22 +28,22 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     func configureAppearance() {
         // Customize the look with background & logo images
 //        backgroundImage = #imageLiteral(resourceName: "Background")
-        // mainLogoImage =
-        // secondaryLogoImage =
+//        mainLogoImage = #imageLiteral(resourceName: "AppIcon")
+//        secondaryLogoImage = #imageLiteral(resourceName: "AppIcon")
         
         // Change colors
         tintColor = UIColor(red: 52.0/255.0, green: 152.0/255.0, blue: 219.0/255.0, alpha: 1)
         errorTintColor = UIColor(red: 253.0/255.0, green: 227.0/255.0, blue: 167.0/255.0, alpha: 1)
         
         // Change placeholder & button texts, useful for different marketing style or language.
-        loginButtonText = "Sign In"
+        loginButtonText = "Đăng nhập"
         signupButtonText = "Create Account"
         facebookButtonText = "Login with Facebook"
-        forgotPasswordButtonText = "Forgot password?"
+        forgotPasswordButtonText = ""
         recoverPasswordButtonText = "Recover"
         namePlaceholder = "Name"
-        emailPlaceholder = "E-Mail"
-        passwordPlaceholder = "Password!"
+        emailPlaceholder = "Tên tài khoản"
+        passwordPlaceholder = "Mật khẩu"
         repeatPasswordPlaceholder = "Confirm password!"
     }
     
@@ -51,19 +51,28 @@ class LoginCoordinator: ILLoginKit.LoginCoordinator {
     
     // Handle login via your API
     override func login(email: String, password: String) {
+        MBProgressHUD.showHUDLoading()
         print("Login with: email =\(email) password = \(password)")
-       
+        
+        _ = EVLoginAPI.signinWith(username: email, password: password).subscribe(onNext: {
+            _ in
+            MBProgressHUD.hideHUDLoading()
+            EVMainViewController.showMainSupplierController()
+        }, onError: { (error) in
+            MBProgressHUD.hideHUDLoading()
+            
+            let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
+            hud.label.text = "Đăng nhập thất bại"
+            hud.mode = .text
+        })
     }
     
     // Handle signup via your API
     override func signup(name: String, email: String, password: String) {
         print("Signup with: name = \(name) email =\(email) password = \(password)")
+        
     }
     
-    // Handle Facebook login/signup via your API
-    override func enterWithFacebook(profile: FacebookProfile) {
-        print("Login/Signup via Facebook with: FB profile =\(profile)")
-    }
     
     // Handle password recovery via your API
     override func recoverPassword(email: String) {

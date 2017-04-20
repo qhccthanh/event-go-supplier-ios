@@ -14,7 +14,7 @@ typealias UploadImageBlock = (_ index: Int) -> Void
 class EVImageUploadManager: NSObject {
     
     static var manager: EVImageUploadManager = EVImageUploadManager()
-    var imageController: EVListSupplierImageCollectionViewController!
+    var imageController: EVImagesViewController!
     var imageUploading: [DKAsset] = []
     var successBlock: ((_ stores: [ImageStore]) -> Void)?
     var progressBlock: ((_ index: Int) -> Void)?
@@ -47,7 +47,7 @@ class EVImageUploadManager: NSObject {
             }
             
             let imageStore = ImageStore(name: "image\(self.imageUploading.index(of: imageData)!)", image: image)
-            EVImageServices.shareInstance.uploadImage(imageStore: imageStore, callback: { (store) in
+            EVImageServices.uploadImage(imageStore: imageStore, callback: { (store) in
                 self.progressBlock?(index)
                 let indexNext = index + 1
                 

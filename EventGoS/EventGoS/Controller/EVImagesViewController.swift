@@ -16,7 +16,7 @@ protocol EVSelected : class {
     func imageSelected(listImageUpload: Array<UIImage>?, listImageStore: Array<ImageStore>?)
 }
 
-class EVListSupplierImageCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class EVImagesViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var listSupplierImage: Array<ImageStore> = Array<ImageStore>()
     var listImageSelected: Array<UIImage> = Array<UIImage>()
@@ -60,7 +60,7 @@ class EVListSupplierImageCollectionViewController: UICollectionViewController, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        EVImageServices.shareInstance.getAllSupplierImage { (result) in
+        EVImageServices.getAllSupplierImage { (result) in
             
             if let result = result {
                 self.listSupplierImage = result.listImage

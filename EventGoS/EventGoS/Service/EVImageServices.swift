@@ -8,13 +8,13 @@
 
 import Foundation
 import SwiftyJSON
-import ReactiveSwift
 import Alamofire
+
 class EVImageServices: BaseService {
     
     static var shareInstance: EVImageServices = EVImageServices()
     
-    func uploadImage(imageStore: ImageStore, callback: @escaping (ImageStore?) -> Void){
+    class func uploadImage(imageStore: ImageStore, callback: @escaping (ImageStore?) -> Void){
         var params = Dictionary<String, Any>()
         var paramImage = Dictionary<String, String>()
         paramImage["name"] = imageStore.name
@@ -50,7 +50,7 @@ class EVImageServices: BaseService {
 //        }
 //    }
     
-    func getAllSupplierImage(callback: @escaping (_ result: ListSuppierImage?) -> Void){
+    class func getAllSupplierImage(callback: @escaping (_ result: ListSuppierImage?) -> Void){
         sessionManager.request(EVSupplierAPI.image.path(), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: self.headers).responseJSON { (respone) in
             
             guard let responeT = respone.response,
