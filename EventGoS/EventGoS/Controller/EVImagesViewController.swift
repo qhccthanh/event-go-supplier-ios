@@ -8,172 +8,154 @@
 
 import UIKit
 import DKImagePickerController
-import AlamofireImage
+import MBProgressHUD
+import RxSwift
+import CPImageViewer
 
-private let reuseIdentifier = "cell"
+fileprivate let reuseIdentifier = "ImageStoreCell"
+fileprivate let cellWidth = (UIScreen.main.bounds.width - 4) / 3 - 2
+fileprivate let imageSize = CGSize(width: cellWidth, height: cellWidth * 1.25)
 
-protocol EVSelected : class {
-    func imageSelected(listImageUpload: Array<UIImage>?, listImageStore: Array<ImageStore>?)
-}
+class EVImagesViewController: UIViewController, CPImageControllerProtocol {
 
-class EVImagesViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    @IBOutlet weak var collectionView: UICollectionView!
+    weak var animationImageView: UIImageView!
+    
+    lazy var pickerController: DKImagePickerController = {
+        return DKImagePickerController()
+    }()
 
-    var listSupplierImage: Array<ImageStore> = Array<ImageStore>()
-    var listImageSelected: Array<UIImage> = Array<UIImage>()
-    weak var delegate: EVSelected?
+    
+    var selectedBlock: ((_ images: EVImageResource) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-  
-        self.title = "WRITE POST"
-        let rightButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneAction))
-        self.navigationItem.rightBarButtonItem = rightButton
-        listImageSelected.append(EVImage.ic_add_place.icon())
-        // Do any additional setup after loading the view.
-    }
-    
-    @objc private func doneAction() {
-       
-        listImageSelected.remove(at: 0)
-        var arrayImage = Array<ImageStore>()
-        for image in listSupplierImage {
-            if image.isChecked == true {
-                arrayImage.append(image)
-            }
-        }
-        guard listImageSelected.count != 0 || arrayImage.count != 0 else {
-            return
+        
+        if EVSupplier.current?.images.count == 0 {
+            loadData()
         }
         
-//        if listImageSelected.count >= 1 {
-//            listImageSelected.remove(at: 0)
-//        }
-        delegate?.imageSelected(listImageUpload: listImageSelected, listImageStore: arrayImage)
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        EVImageServices.getAllSupplierImage { (result) in
-            
-            if let result = result {
-                self.listSupplierImage = result.listImage
-            }
-            
-            dispatch_main_queue_safe {
-                self.collectionView?.reloadData()
-            }
-        }
-    }
-
-    
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return self.listSupplierImage.count
-        } else {
-            return self.listImageSelected.count
-        }
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        guard let cell = collectionView.cellForItem(at: indexPath) as? EVInfoStoreCollectionViewCell else {
-            
-            return
-        }
-        
-        if indexPath.section == 0 {
-            var model = listSupplierImage[indexPath.row]
-            if model.isChecked == false {
-                cell.imageSelectedView.image = UIImage(named: "ic_checked")
-                listSupplierImage[indexPath.row].isChecked = true
-            } else {
-                listSupplierImage[indexPath.row].isChecked = false
-                cell.imageSelectedView.image = EVImage.ic_dontCheck.icon()
-            }
-            self.collectionView?.reloadData()
-        }
-        
-        if indexPath.section == 1 {
-            if (indexPath.row == 0) {
-                
-                let pickerController = DKImagePickerController()
-               
-                pickerController.didSelectAssets = { (assets: [DKAsset]) in
-                    // MBProgessHUD
-                    self.listImageSelected.removeAll()
-                    self.listImageSelected.append(EVImage.ic_add_place.icon())
-                    for imageData in assets {
-                        imageData.fetchOriginalImage(false, completeBlock: { ( image, into) in
-//                            self.collectionView?.reloadSections(NSIndexSet(index: 1) as IndexSet)
-                            
-                            self.listImageSelected.append(image!)
-                            self.collectionView?.reloadData()
-                        })
-                    }
-                    
-                    EVImageUploadManager.manager.uploadImage(assets, progressBlock: { (index) in
-                        
-                    }, successBlock: { (imageStores) in
-                        print(imageStores)
-//                        self.listImageSelected = imageStores
-                    })
+        _ = EVSupplier.current!.rx.observe([EVImageResource].self, "images")
+            .subscribe(onNext: {
+                [weak self] (_) in
+                dispatch_main_queue_safe {
+                    self?.collectionView.reloadData()
                 }
+        })
+        
+        collectionView.contentInset = UIEdgeInsetsMake(8, 2, 8, 2)
+    }
+    
+    func loadData() {
+        
+        _ = EVImageServices.getAllSupplierImage().subscribe(onNext: { (images) in
+//            print(images)
+        })
+    }
+    
+    func showImagePickerController(_ picker: DKImagePickerController) {
+        picker.deselectAllAssets()
+        
+        picker.allowsLandscape = false
+        picker.maxSelectableCount = 5
+        picker.assetGroupTypes = [
+            .smartAlbumUserLibrary,
+            .smartAlbumFavorites,
+            .albumRegular
+        ]
+        picker.assetType = .allPhotos
+        picker.autoDownloadWhenAssetIsInCloud = false
+        picker.didSelectAssets = {
+            [unowned self] assets in
+            self.uploadImage(assets)
+        }
+        
+        self.navigationController?.present(picker, animated: true, completion: nil)
+    }
+    
+    func uploadImage(_ assets: [DKAsset]) {
+        
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.mode = .determinateHorizontalBar
+        var currentCompleteCount: Float = 0
+        hud.progress = 0
+        hud.label.text = "Đang tải hình ảnh lên máy chủ \(Int(currentCompleteCount))/\(assets.count)"
+        
+        _ = EVImageUploadManager.uploadImage(assets)
+            .subscribe(onNext: { (image) in
                 
-                self.present(pickerController, animated: true) {}
-            }
-
-        }
-    }
-//
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? EVInfoStoreCollectionViewCell {
-            if indexPath.section == 0 {
-                let model = listSupplierImage[indexPath.row]
-                cell.imageSelectedView.image = EVImage.ic_checked.icon()
-                if let url = URL(string: model.url.replacingOccurrences(of: "\"", with: "")){
-                    cell.imageInfoStore.downloadedFrom(url: url)
+                currentCompleteCount += 1
+                hud.progress = (currentCompleteCount / Float(assets.count)) / 100
+                hud.label.text = "Đang tải hình ảnh lên máy chủ \(Int(currentCompleteCount))/\(assets.count)"
+                
+                EVSupplier.current?.images.insert(image, at: 0)
+                
+                if Int(currentCompleteCount) == assets.count {
+                    hud.hide(animated: true)
                 }
-            } else {
-                cell.imageInfoStore.image = self.listImageSelected[indexPath.row]
-            }
-            return cell
-        }
-        
-        return UICollectionViewCell(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
+            }, onError: { (error) in
+                print(error)
+                hud.hide(animated: true)
+            })
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let itemsPerRow: CGFloat = 3
-        if let flow = collectionViewLayout as? UICollectionViewFlowLayout {
-            flow.minimumInteritemSpacing = 2
-            let spacePadding = itemsPerRow * flow.minimumInteritemSpacing
-            let widthAvailable = self.view.bounds.width - spacePadding
-            let widthItem: CGFloat = widthAvailable/itemsPerRow
-            if (widthItem >= 100) {
-                return CGSize(width: widthItem, height: widthItem)
-            }
-        }
-        
-        return CGSize(width: 100, height: 100)
+    @IBAction func addImage(_ sender: AnyObject!) {
+        showImagePickerController(self.pickerController)
     }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-
-  
 }
+
+extension EVImagesViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return EVSupplier.current?.images.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EVImageStoreCell
+        let item = EVSupplier.current!.images[indexPath.row]
+        cell.bindingUI(item)
+        
+        return cell
+    }
+    
+}
+
+extension EVImagesViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return imageSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout
+        collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 3.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? EVImageStoreCell {
+            self.animationImageView = cell.mainImageView
+            
+            let controller = CPImageViewerViewController()
+            controller.transitioningDelegate = CPImageViewerAnimator()
+            controller.image = animationImageView.image
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
+}
+

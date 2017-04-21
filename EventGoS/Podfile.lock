@@ -15,12 +15,11 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Alamofire (4.4.0)
-  - AlamofireImage (3.2.0):
-    - Alamofire (~> 4.1)
   - AnimatedTextInput (0.5.0)
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
+  - CPImageViewer (4.0.0)
   - DKImagePickerController (3.5.1):
     - DKImagePickerController/Camera (= 3.5.1)
     - DKImagePickerController/ImageManager (= 3.5.1)
@@ -84,9 +83,9 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
   - Alamofire
-  - AlamofireImage (~> 3.1)
   - AnimatedTextInput (~> 0.4)
   - ChameleonFramework (~> 2.1)
+  - CPImageViewer (~> 4.0)
   - DKImagePickerController
   - Firebase/AdMob
   - Firebase/Core
@@ -105,9 +104,9 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   AnimatedTextInput: 876d307ced52d9973c21c91d8b877170ae0c598c
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  CPImageViewer: 7ebd6f707b45d70a3253b2b15f00c31c581a2704
   DKImagePickerController: 8db7e76a88a7a66a893ba30e935cc4c9bb7ed335
   Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
   FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
@@ -129,6 +128,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Validator: b1793fbfd0046097551d0edd18e2c30792d69ef5
 
-PODFILE CHECKSUM: ace6d316b89b223993510f9722e2a04de5bc9ec8
+PODFILE CHECKSUM: 395b2415f6922681638d8fd6e3eabb6278e714a3
 
 COCOAPODS: 1.2.0

@@ -18,11 +18,11 @@ class EVMenuViewController: QuickTableViewController {
         tableContents = [
             Section(title: nil, rows: [
                 NavigationRow(title: "Địa điểm", subtitle: .belowTitle("Danh sách thông tin địa điểm của hệ thống"), icon: Icon(image: #imageLiteral(resourceName: "ic_location")), action: { (_) in
-                    let storeInfo = EVController.infoStore.getController()
+                    let storeInfo = EVController.stores.getController()
                     self.navigationController?.pushViewController(storeInfo, animated: true)
                 }),
                 NavigationRow(title: "Hỉnh ảnh", subtitle: .belowTitle("Hình ảnh của hệ thống"), icon: Icon(image: #imageLiteral(resourceName: "ic_picture")), action: { (_) in
-                    let imagesInfo = EVImagesViewController()
+                    let imagesInfo = EVController.images.getController()
                     self.navigationController?.pushViewController(imagesInfo, animated: true)
                 }),
             ]),
@@ -60,21 +60,5 @@ class EVMenuViewController: QuickTableViewController {
     func helpAction() {
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

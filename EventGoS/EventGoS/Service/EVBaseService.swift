@@ -16,7 +16,7 @@ enum EVSupplierAPI: String {
     case login = "suppliers/signin"
     case me = "suppliers/me"
     case logout = "suppliers/signout"
-    case location = "locations"
+    case location = "suppliers/locations"
     case image = "images"
     
     func path() -> String {
@@ -28,7 +28,10 @@ class BaseService {
     
     static var headers : [String : String] {
         get {
-            return ["Content-Type": "application/json"]
+            return [
+                "Content-Type": "application/json",
+                "withCredentials": "true"
+            ]
         }
     }
     

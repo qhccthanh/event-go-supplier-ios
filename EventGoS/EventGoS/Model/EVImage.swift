@@ -9,23 +9,30 @@
 import Foundation
 import SwiftyJSON
 
-class ImageStore: NSObject {
+class EVImageResource: NSObject {
     
     var id: String = ""
     var supplierId: String = ""
     var name: String = ""
     var detail: String = ""
     var url: String = ""
-    var create: Double = 0
+    var create: Date = Date()
     var tags: [String] = [String]()
     var image: UIImage = UIImage()
     var isChecked: Bool = false
     
+    
     init(data: JSON) {
+        super.init()
+        
         self.id = data["_id"].stringValue
         self.supplierId = data["supplier_id"].stringValue
         self.name = data["name"].stringValue
         self.detail = data["detail"].stringValue
+        
+        if let dateString =  data["created_date"].string {
+            self.create = Date.fromStringDate(dateString)
+        }
         self.url = data["image_url"].stringValue
     }
     
@@ -33,11 +40,19 @@ class ImageStore: NSObject {
         self.name = name
         self.image = image
     }
+    
+    class func fromServerJSON(_ data: JSON) -> [EVImageResource] {
+        EVSupplier.current?.images = data["data"].arrayValue.map({
+            EVImageResource(data: $0)
+        })
+        
+        return EVSupplier.current!.images
+    }
 }
 
 struct ListSuppierImage {
-    var listImage: Array<ImageStore> = Array<ImageStore>()
+    var listImage: Array<EVImageResource> = Array<EVImageResource>()
     init(data: JSON) {
-        listImage = data["data"].arrayValue.map({ ImageStore(data: $0)})
+        listImage = data["data"].arrayValue.map({ EVImageResource(data: $0)})
     }
 }

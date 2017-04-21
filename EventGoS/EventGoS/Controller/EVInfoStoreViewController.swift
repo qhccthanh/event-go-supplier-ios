@@ -23,7 +23,7 @@ class EVInfoStoreViewController: UIViewController {
     
     fileprivate let reuseIdentifier = "cell"
     var listImageSelected:Array<UIImage> = Array<UIImage>()
-    var listImageStore: Array<ImageStore> = Array<ImageStore>()
+    var listImageStore: Array<EVImageResource> = Array<EVImageResource>()
     var didFindMyLocation = false
     var locationManager = CLLocationManager()
     var alreadyUpdatedLocation = false
@@ -59,7 +59,7 @@ class EVInfoStoreViewController: UIViewController {
 //        listImageSelected.append( EVImage.ic_add_place.icon())
         collectionView.delegate = self
         collectionView.dataSource = self
-        listImageStore.append(ImageStore(name: "add", image: EVImage.ic_add_place.icon()))
+        listImageStore.append(EVImageResource(name: "add", image: EVImage.ic_add_place.icon()))
     }
     
 
@@ -227,17 +227,17 @@ extension EVInfoStoreViewController: CLLocationManagerDelegate{
     }
 }
 
-extension EVInfoStoreViewController : EVSelected {
-    func imageSelected(listImageUpload: Array<UIImage>?, listImageStore: Array<ImageStore>?) {
-        if listImageUpload?.count != 0{
-            listImageSelected.append(contentsOf: listImageUpload!)
-        }
-        
-        if listImageStore?.count != 0 {
-            self.listImageStore.append(contentsOf: listImageStore!)
-        }
-        
-        self.collectionView.reloadData()
-    }
-}
+//extension EVInfoStoreViewController : EVSelected {
+//    func imageSelected(listImageUpload: Array<UIImage>?, listImageStore: Array<EVImageResource>?) {
+//        if listImageUpload?.count != 0{
+//            listImageSelected.append(contentsOf: listImageUpload!)
+//        }
+//        
+//        if listImageStore?.count != 0 {
+//            self.listImageStore.append(contentsOf: listImageStore!)
+//        }
+//        
+//        self.collectionView.reloadData()
+//    }
+//}
 

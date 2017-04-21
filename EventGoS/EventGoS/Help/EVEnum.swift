@@ -47,6 +47,8 @@ enum EVController: String {
     case listImageStore = "EVListSupplierImageCollectionViewController"
     case main = "EVSupplierMainController"
     case root = "EVMainViewController"
+    case stores = "EVStoresViewController"
+    case images = "EVImagesViewController"
 }
 extension EVController {
     

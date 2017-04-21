@@ -10,5 +10,6 @@
 #define EventGoS_BridgeHeader_h
 
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "TMCache.h"
 
 #endif /* EventGoS_BridgeHeader_h */

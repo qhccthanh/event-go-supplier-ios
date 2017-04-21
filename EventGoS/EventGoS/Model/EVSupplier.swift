@@ -21,6 +21,9 @@ class EVSupplier: NSObject {
     var status: String!
     var tags: [String]?
     
+    dynamic var locations: [EVLocation] = []
+    dynamic var images: [EVImageResource] = []
+    
     class func fromJson(data: JSON) -> EVSupplier {
         
         let supplier = EVSupplier()

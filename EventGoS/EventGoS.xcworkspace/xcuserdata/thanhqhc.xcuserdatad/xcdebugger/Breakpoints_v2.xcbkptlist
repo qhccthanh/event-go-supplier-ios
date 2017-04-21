@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EventGoS/Help/EVImageUploadManager.swift"
-            timestampString = "514313140.341029"
+            filePath = "Pods/AlamofireImage/Source/UIImageView+AlamofireImage.swift"
+            timestampString = "514463735.01629"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "uploadImage(at:)"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
+            landmarkName = "af_setImage(withURLRequest:placeholderImage:filter:progress:progressQueue:imageTransition:runImageTransitionIfCached:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EventGoS/Help/EVImageUploadManager.swift"
-            timestampString = "514313165.534038"
+            filePath = "Pods/AlamofireImage/Source/UIImageView+AlamofireImage.swift"
+            timestampString = "514469844.621437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "uploadImage(at:)"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
+            landmarkName = "af_setImage(withURLRequest:placeholderImage:filter:progress:progressQueue:imageTransition:runImageTransitionIfCached:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,76 +41,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EventGoS/Help/EVImageUploadManager.swift"
-            timestampString = "514313170.004322"
+            filePath = "EventGoS/Service/EVImageServices.swift"
+            timestampString = "514494813.67021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "uploadImage(at:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EventGoS/Controller/EVInfoStoreViewController.swift"
-            timestampString = "514402662.657914"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EventGoS/Service/EVLoginAPI.swift"
-            timestampString = "514405952.533744"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "signinWith(username:password:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "uploadImage(imageStore:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static EventGoS.EVLoginAPI.(signinWith (username : Swift.String, password : Swift.String) -&gt; RxSwift.Observable&lt;EventGoS.EVSupplier&gt;).(closure #1).(closure #1)"
+                  symbolName = "static EventGoS.EVImageServices.(uploadImage (imageStore : EventGoS.EVImageResource) -&gt; RxSwift.Observable&lt;EventGoS.EVImageResource&gt;).(closure #1).(closure #1)"
                   moduleName = "EventGoS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thanhqhc/Documents/LuanVan/event-go-supplier-ios/EventGoS/EventGoS/Service/EVLoginAPI.swift"
-                  timestampString = "514405964.00093"
+                  urlString = "file:///Users/thanhqhc/Documents/LuanVan/event-go-supplier-ios/EventGoS/EventGoS/Service/EVImageServices.swift"
+                  timestampString = "514494813.887767"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
                   offsetFromSymbolStart = "32">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static EventGoS.EVLoginAPI.(signinWith (username : Swift.String, password : Swift.String) -&gt; RxSwift.Observable&lt;EventGoS.EVSupplier&gt;).(closure #1).(closure #1)"
+                  symbolName = "static EventGoS.EVImageServices.(uploadImage (imageStore : EventGoS.EVImageResource) -&gt; RxSwift.Observable&lt;EventGoS.EVImageResource&gt;).(closure #1).(closure #1)"
                   moduleName = "EventGoS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thanhqhc/Documents/LuanVan/event-go-supplier-ios/EventGoS/EventGoS/Service/EVLoginAPI.swift"
-                  timestampString = "514405964.005178"
+                  urlString = "file:///Users/thanhqhc/Documents/LuanVan/event-go-supplier-ios/EventGoS/EventGoS/Service/EVImageServices.swift"
+                  timestampString = "514494813.890392"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "466">
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "108">
                </Location>
             </Locations>
          </BreakpointContent>

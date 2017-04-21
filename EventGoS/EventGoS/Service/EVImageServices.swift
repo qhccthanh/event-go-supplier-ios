@@ -9,59 +9,65 @@
 import Foundation
 import SwiftyJSON
 import Alamofire
+import RxSwift
+import RxCocoa
 
 class EVImageServices: BaseService {
     
     static var shareInstance: EVImageServices = EVImageServices()
     
-    class func uploadImage(imageStore: ImageStore, callback: @escaping (ImageStore?) -> Void){
+    class func uploadImage(imageStore: EVImageResource) -> Observable<EVImageResource> {
+        
         var params = Dictionary<String, Any>()
         var paramImage = Dictionary<String, String>()
         paramImage["name"] = imageStore.name
         paramImage["detail"] = imageStore.detail
         
-        let imageData: Data = UIImagePNGRepresentation(imageStore.image)!
+        let imageData: Data = UIImageJPEGRepresentation(imageStore.image, 0.8)!
         let base64Encode = imageData.base64EncodedString()
         params["file_encode_64"] = base64Encode
         params["image_description"] = paramImage
         
-        sessionManager.request(EVSupplierAPI.image.path(), method: .post, parameters: params, encoding: URLEncoding.httpBody, headers: self.headers).responseJSON { (respone) in
+        return Observable.create({ (sub) -> Disposable in
             
-            guard let responeT = respone.response,
-                let dataJSON = respone.data,
-                responeT.statusCode != 200 else {
-                    callback(nil)
-                    return
+            sessionManager.request(EVSupplierAPI.image.path(), method: .post, parameters: params, encoding: JSONEncoding.default, headers: self.headers).responseJSON { (respone) in
+                
+                guard let responeT = respone.response,
+                    let dataJSON = respone.data,
+                    respone.error == nil,
+                    responeT.statusCode == 200 else {
+                        sub.onError(NSError.defaultAPIError())
+                        return
+                }
+                
+                let json = JSON(dataJSON)
+                let image = EVImageResource(data: json["data"])
+                sub.onNext(image)
             }
             
-            let json = JSON(dataJSON)
-            callback(ImageStore(data: json["data"]))
-        }
-        
+            return Disposables.create()
+        })
     }
     
-
-
-//    func uploadArrayImage(arrayImage: Array<ImageStore>){
-//        for image in arrayImage {
-//            uploadImage(imageStore: image, callback: { (result) in
-//
-//            })
-//        }
-//    }
-    
-    class func getAllSupplierImage(callback: @escaping (_ result: ListSuppierImage?) -> Void){
-        sessionManager.request(EVSupplierAPI.image.path(), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: self.headers).responseJSON { (respone) in
+    class func getAllSupplierImage() -> Observable<[EVImageResource]> {
+        
+        return Observable.create({ (sub) -> Disposable in
+            sub.onNext(EVSupplier.current!.images)
             
-            guard let responeT = respone.response,
-                let dataJSON = respone.data,
-                responeT.statusCode != 200 else {
-                    callback(nil)
-                    return
+            sessionManager.request(EVSupplierAPI.image.path(), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: self.headers).responseJSON { (respone) in
+                
+                if  let responeT = respone.response,
+                    let dataJSON = respone.data,
+                    responeT.statusCode == 200  {
+                
+                    let json = JSON(dataJSON)
+                    _ = EVImageResource.fromServerJSON(json)
+                }
+                
+                sub.onNext(EVSupplier.current!.images)
             }
             
-            let json = JSON(dataJSON)
-            callback(ListSuppierImage(data: json))
-        }
+            return Disposables.create()
+        }).observeOn(MainScheduler.asyncInstance)
     }
 }

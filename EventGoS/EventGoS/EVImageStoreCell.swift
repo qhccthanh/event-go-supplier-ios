@@ -13,8 +13,10 @@ class EVImageStoreCell: UICollectionViewCell {
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var checkImageView: UIImageView!
+    @IBOutlet weak var createLabel: UILabel!
+    
     var isCheckMode = false
-    weak var imageStore: ImageStore?
+    weak var imageStore: EVImageResource?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,10 +26,34 @@ class EVImageStoreCell: UICollectionViewCell {
         }
     }
     
-    func bindingUI(_ imageStore: ImageStore) {
+    func bindingUI(_ imageStore: EVImageResource) {
         
         self.imageStore = imageStore
         checkImageView.isHidden = !isCheckMode
+
+        if let imageURL = URL(string: imageStore.url) {
+            mainImageView.setImageWithUrl(imageURL, placeHolderImage: #imageLiteral(resourceName: "EventGo-Logo"))
+        }
         
+        createLabel.text = imageStore.create.toString()
+        checkImageView.image = imageStore.isChecked ? #imageLiteral(resourceName: "ic_checked") : #imageLiteral(resourceName: "ic_dontCheck")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        mainImageView.image = #imageLiteral(resourceName: "EventGo-Logo")
+        checkImageView.isHidden = true
+        createLabel.text = ""
+    }
+    
+    @IBAction func onTouchChecked(_ sender: AnyObject!) {
+        
+        guard let imageStore = imageStore else {
+            return
+        }
+        mainImageView.cancelImageRequestOperation()
+        imageStore.isChecked = !imageStore.isChecked
+        checkImageView.image = imageStore.isChecked ? #imageLiteral(resourceName: "ic_checked") : #imageLiteral(resourceName: "ic_dontCheck")
     }
 }
