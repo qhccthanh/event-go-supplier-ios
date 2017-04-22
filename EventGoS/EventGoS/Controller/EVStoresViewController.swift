@@ -74,7 +74,8 @@ extension EVStoresViewController: UITableViewDataSource {
         let location = EVSupplier.current!.locations[indexPath.row]
         
         if let imageView = cell.contentView.viewWithTag(101) as? UIImageView,
-            let imageString = location.image_url, let imageURL = URL(string: imageString)
+            let imageString = location.image_url?.first,
+            let imageURL = URL(string: imageString)
         {
             imageView.setImageWithUrl(imageURL, placeHolderImage: #imageLiteral(resourceName: "AppIcon"))
         }
@@ -103,4 +104,16 @@ extension EVStoresViewController: UITableViewDelegate {
         
         return nil
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+        }
+    }
 }
+

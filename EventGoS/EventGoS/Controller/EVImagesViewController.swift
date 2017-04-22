@@ -17,7 +17,7 @@ import ESPullToRefresh
 
 fileprivate let reuseIdentifier = "ImageStoreCell"
 fileprivate let cellWidth = (UIScreen.main.bounds.width - 4) / 3 - 2
-fileprivate let imageSize = CGSize(width: cellWidth, height: cellWidth * 1.25)
+let imageSize = CGSize(width: cellWidth, height: cellWidth * 1.25)
 
 class EVImagesViewController: UIViewController, CPImageControllerProtocol {
 

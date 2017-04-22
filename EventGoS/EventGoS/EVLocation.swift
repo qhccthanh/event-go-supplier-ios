@@ -13,14 +13,15 @@ class EVLocation: NSObject {
 
     var location_id: String!
     var supplier_id: String!
+    var created_date: Date = Date()
+    var tags: [String]?
+    var status: String?
+    
     var name: String?
     var detail: String?
     var address: String?
-    var image_url: String?
-    var created_date: Date = Date()
-    var location_info: NSDictionary?
-    var tags: [String]?
-    var status: String?
+    var image_url: [String]?
+    var location_info: EVGeocode?
     
     class func fromJson(data: JSON) -> EVLocation {
         
@@ -30,11 +31,13 @@ class EVLocation: NSObject {
         location.name = data["name"].stringValue
         location.detail = data["detail"].stringValue
         location.address = data["address"].stringValue
-        location.image_url = data["image_url"].arrayValue.first?.string
+        location.image_url = data["image_url"].arrayValue.map({
+            return $0.stringValue
+        })
         if let dateString =  data["created_date"].string {
             location.created_date = Date.fromStringDate(dateString)
         }
-        location.location_info = data["location_info"].dictionaryObject as NSDictionary?
+        location.location_info = EVGeocode.fromJSON(data["location_info"])
         location.status = data["status"].stringValue
         
         return location
