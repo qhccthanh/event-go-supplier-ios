@@ -11,6 +11,9 @@ import DKImagePickerController
 import MBProgressHUD
 import RxSwift
 import CPImageViewer
+import XLActionController
+import Toaster
+import ESPullToRefresh
 
 fileprivate let reuseIdentifier = "ImageStoreCell"
 fileprivate let cellWidth = (UIScreen.main.bounds.width - 4) / 3 - 2
@@ -24,7 +27,6 @@ class EVImagesViewController: UIViewController, CPImageControllerProtocol {
     lazy var pickerController: DKImagePickerController = {
         return DKImagePickerController()
     }()
-
     
     var selectedBlock: ((_ images: EVImageResource) -> Void)?
     
@@ -39,17 +41,39 @@ class EVImagesViewController: UIViewController, CPImageControllerProtocol {
             .subscribe(onNext: {
                 [weak self] (_) in
                 dispatch_main_queue_safe {
+                    
                     self?.collectionView.reloadData()
                 }
         })
         
-        collectionView.contentInset = UIEdgeInsetsMake(8, 2, 8, 2)
+        self.collectionView.contentInset = UIEdgeInsetsMake(8, 2, 8, 2)
+        self.collectionView.es_addPullToRefresh {
+            [weak self] in
+            self?.loadData()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.isMovingFromParentViewController {
+            EVSupplier.current?.images.forEach({
+                $0.isChecked = false
+            })
+        }
     }
     
     func loadData() {
         
-        _ = EVImageServices.getAllSupplierImage().subscribe(onNext: { (images) in
-//            print(images)
+        _ = EVImageServices.getAllSupplierImage().subscribe(onNext: {
+            [weak self] _ in
+
+            self?.collectionView.es_stopPullToRefresh(ignoreDate: true, ignoreFooter: false)
+        }, onError: {
+            [weak self] _ in
+            
+            self?.collectionView.es_stopPullToRefresh(ignoreDate: true, ignoreFooter: false)
+            Toast.show("Tải dữ liệu thất bại vui lòng kiểm tra lại")
         })
     }
     
@@ -92,6 +116,7 @@ class EVImagesViewController: UIViewController, CPImageControllerProtocol {
                 
                 if Int(currentCompleteCount) == assets.count {
                     hud.hide(animated: true)
+                    Toast.show("Tải hỉnh thành công")
                 }
             }, onError: { (error) in
                 print(error)
@@ -118,8 +143,10 @@ extension EVImagesViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EVImageStoreCell
         let item = EVSupplier.current!.images[indexPath.row]
-        cell.bindingUI(item)
+        cell.isCheckMode = self.selectedBlock != nil
+        cell.delegate = self
         
+        cell.bindingUI(item)
         return cell
     }
     
@@ -145,17 +172,53 @@ extension EVImagesViewController: UICollectionViewDelegate, UICollectionViewDele
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 3.0
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if let cell = collectionView.cellForItem(at: indexPath) as? EVImageStoreCell {
-            self.animationImageView = cell.mainImageView
-            
-            let controller = CPImageViewerViewController()
-            controller.transitioningDelegate = CPImageViewerAnimator()
-            controller.image = animationImageView.image
-            self.present(controller, animated: true, completion: nil)
-        }
-    }
 }
 
+extension EVImagesViewController: EVImageStoreCellDelegate {
+    
+    func didLongPress(at item: EVImageResource) {
+        
+        let actionController = PeriscopeActionController()
+        actionController.headerData = "Bạn có muốn xoá hình ảnh này ?"
+        
+        actionController.addAction(Action("Xoá", style: .destructive, handler: {
+            action in
+            MBProgressHUD.showHUDLoading()
+            _ = EVImageServices.deleteSupplierImage(item.id)
+                .subscribe(onNext: {
+                    success in
+                    MBProgressHUD.hideHUDLoading()
+                    
+                    let mess = success ? "Xoá thành công" : "Xoá thất bại"
+                    Toast.show(mess)
+                    
+                    if !success {
+                        return
+                    }
+                    
+                    if let index = EVSupplier.current!.images.index(of: item) {
+                        EVSupplier.current!.images.remove(at: index)
+                        self.collectionView.reloadData()
+                    }
+                })
+        }))
+        
+        actionController.addSection(PeriscopeSection())
+        
+        actionController.addAction(Action("Huỷ bỏ", style: .cancel, handler: {
+            action in
+            
+        }))
+        present(actionController, animated: true, completion: nil)
+    }
+    
+    func didPressed(at cell: EVImageStoreCell, item: EVImageResource) {
+        
+        self.animationImageView = cell.mainImageView
+        let controller = CPImageViewerViewController()
+        controller.transitioningDelegate = CPImageViewerAnimator()
+        controller.image = animationImageView.image
+        
+        self.present(controller, animated: true, completion: nil)
+    }
+}

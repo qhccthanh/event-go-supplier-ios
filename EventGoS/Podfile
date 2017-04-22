@@ -24,6 +24,10 @@ target 'EventGoS' do
   pod 'RxCocoa',    '~> 3.0'
   pod 'Validator', '~> 2.1'
   pod 'CPImageViewer', '~> 4.0'
+  pod 'XLActionController'
+  pod 'XLActionController/Periscope'
+  pod 'Toaster', '~> 2.0'
+  pod 'ESPullToRefresh', '~> 2.6'
   # Pods for EventGoS
 
 end

@@ -8,6 +8,7 @@
 
 import MBProgressHUD
 import UIKit
+import Toaster
 
 extension MBProgressHUD {
     
@@ -41,4 +42,19 @@ extension Date {
         return date
     }
 }
+
+fileprivate var toast: Toast!
+
+extension Toast {
+    
+    class func show(_ mesage: String, duration: TimeInterval = Delay.short) {
+        if toast != nil {
+            toast.cancel()
+        }
+        toast = Toast.init(text: mesage, duration: duration)
+        toast.show()
+    }
+}
+
+
 

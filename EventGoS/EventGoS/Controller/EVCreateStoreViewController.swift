@@ -12,14 +12,14 @@ import DKImagePickerController
 import GooglePlaces
 import GoogleMaps
 
-class EVInfoStoreViewController: UIViewController {
+class EVCreateStoreViewController: UIViewController {
     
-    @IBOutlet weak var nameStoreView: AnimatedTextInput!
-    @IBOutlet weak var infoSupplierView: AnimatedTextInput!
-    @IBOutlet weak var openTime: AnimatedTextInput!
-    @IBOutlet weak var closeTime: AnimatedTextInput!
-    @IBOutlet weak var address: AnimatedTextInput!
-    @IBOutlet weak var collectionView: UICollectionView!
+//    @IBOutlet weak var nameStoreView: AnimatedTextInput!
+//    @IBOutlet weak var infoSupplierView: AnimatedTextInput!
+//    @IBOutlet weak var openTime: AnimatedTextInput!
+//    @IBOutlet weak var closeTime: AnimatedTextInput!
+//    @IBOutlet weak var address: AnimatedTextInput!
+//    @IBOutlet weak var collectionView: UICollectionView!
     
     fileprivate let reuseIdentifier = "cell"
     var listImageSelected:Array<UIImage> = Array<UIImage>()
@@ -49,16 +49,16 @@ class EVInfoStoreViewController: UIViewController {
     
     func setupView(){
         self.title = "ADD STORE"
-        nameStoreView.placeHolderText = "Tên Cửa Hàng"
-        infoSupplierView.placeHolderText = "Cửa Hàng Trưởng"
-        openTime.placeHolderText = "Giờ mở cửa"
-        closeTime.placeHolderText = "Giờ đóng cửa"
+//        nameStoreView.placeHolderText = "Tên Cửa Hàng"
+//        infoSupplierView.placeHolderText = "Cửa Hàng Trưởng"
+//        openTime.placeHolderText = "Giờ mở cửa"
+//        closeTime.placeHolderText = "Giờ đóng cửa"
 //        latitude.placeHolderText = "Kinh độ"
 //        longitude.placeHolderText = "Vĩ độ"
 //        address.placeHolderText = "Địa chỉ"
 //        listImageSelected.append( EVImage.ic_add_place.icon())
-        collectionView.delegate = self
-        collectionView.dataSource = self
+//        collectionView.delegate = self
+//        collectionView.dataSource = self
         listImageStore.append(EVImageResource(name: "add", image: EVImage.ic_add_place.icon()))
     }
     
@@ -85,7 +85,7 @@ class EVInfoStoreViewController: UIViewController {
     }
 
 }
-extension EVInfoStoreViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension EVCreateStoreViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -154,7 +154,7 @@ extension EVInfoStoreViewController: UICollectionViewDelegate, UICollectionViewD
     }
 }
 
-extension EVInfoStoreViewController: CLLocationManagerDelegate{
+extension EVCreateStoreViewController: CLLocationManagerDelegate{
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {

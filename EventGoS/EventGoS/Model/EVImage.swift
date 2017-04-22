@@ -44,6 +44,8 @@ class EVImageResource: NSObject {
     class func fromServerJSON(_ data: JSON) -> [EVImageResource] {
         EVSupplier.current?.images = data["data"].arrayValue.map({
             EVImageResource(data: $0)
+        }).sorted(by: {
+            return $0.create.timeIntervalSince1970 > $1.create.timeIntervalSince1970
         })
         
         return EVSupplier.current!.images

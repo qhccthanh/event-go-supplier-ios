@@ -30,7 +30,12 @@ class EVImageServices: BaseService {
         
         return Observable.create({ (sub) -> Disposable in
             
-            sessionManager.request(EVSupplierAPI.image.path(), method: .post, parameters: params, encoding: JSONEncoding.default, headers: self.headers).responseJSON { (respone) in
+            sessionManager.request(EVSupplierAPI.image.path(),
+                                   method: .post,
+                                   parameters: params,
+                                   encoding: JSONEncoding.default,
+                                   headers: self.headers)
+                .responseJSON { (respone) in
                 
                 guard let responeT = respone.response,
                     let dataJSON = respone.data,
@@ -54,7 +59,12 @@ class EVImageServices: BaseService {
         return Observable.create({ (sub) -> Disposable in
             sub.onNext(EVSupplier.current!.images)
             
-            sessionManager.request(EVSupplierAPI.image.path(), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: self.headers).responseJSON { (respone) in
+            sessionManager.request(EVSupplierAPI.image.path(),
+                                   method: .get,
+                                   parameters: nil,
+                                   encoding: JSONEncoding.default,
+                                   headers: self.headers)
+                .responseJSON { (respone) in
                 
                 if  let responeT = respone.response,
                     let dataJSON = respone.data,
@@ -69,5 +79,31 @@ class EVImageServices: BaseService {
             
             return Disposables.create()
         }).observeOn(MainScheduler.asyncInstance)
+    }
+    
+    class func deleteSupplierImage(_ id: String) -> Observable<Bool> {
+        
+        return Observable.create({ (sub) -> Disposable in
+            
+            sessionManager.request(EVSupplierAPI.image.path().appending("/\(id)"),
+                                   method: .delete,
+                                   parameters: nil,
+                                   encoding: JSONEncoding.default,
+                                   headers: self.headers)
+                .responseJSON { (respone) in
+                    
+                    guard let responeT = respone.response,
+                        let _ = respone.data,
+                        respone.error == nil,
+                        responeT.statusCode == 200 else {
+                            sub.onNext(false)
+                            return
+                    }
+                    
+                    sub.onNext(true)
+            }
+            
+            return Disposables.create()
+        })
     }
 }

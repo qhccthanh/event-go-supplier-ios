@@ -103,7 +103,6 @@ extension UIImageView {
         
         self.af_requestImageOperation = (BlockOperation(block: { () -> Void in
             let task = URLSession.shared.dataTask(with: request) { (data, respone, error) in
-                
                     guard let data = data else {
                         return
                     }

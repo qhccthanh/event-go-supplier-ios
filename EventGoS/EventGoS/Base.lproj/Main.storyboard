@@ -22,54 +22,54 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Info Store View Controller-->
+        <!--Create Store View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="EVInfoStoreViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="EVInfoStoreViewController" customModule="EventGoS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EVCreateStoreViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="EVCreateStoreViewController" customModule="EventGoS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndi-Eh-E4c" customClass="AnimatedTextInput" customModule="AnimatedTextInput">
-                                <rect key="frame" x="0.0" y="40" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="pLB-g7-2Tt"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psQ-WR-iIG" customClass="AnimatedTextInput" customModule="AnimatedTextInput">
-                                <rect key="frame" x="0.0" y="87" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="67" width="375" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yn5-tu-0X6" customClass="AnimatedTextInput" customModule="AnimatedTextInput">
-                                <rect key="frame" x="0.0" y="134" width="188" height="45"/>
+                                <rect key="frame" x="0.0" y="114" width="188" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWt-qg-hiy" customClass="AnimatedTextInput" customModule="AnimatedTextInput">
-                                <rect key="frame" x="187" y="134" width="188" height="45"/>
+                                <rect key="frame" x="187" y="114" width="188" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hSG-e8-sKd" customClass="AnimatedTextInput" customModule="AnimatedTextInput">
-                                <rect key="frame" x="0.0" y="181" width="175" height="45"/>
+                                <rect key="frame" x="0.0" y="161" width="175" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBL-Lx-48k" customClass="AnimatedTextInput" customModule="AnimatedTextInput">
-                                <rect key="frame" x="175" y="181" width="175" height="45"/>
+                                <rect key="frame" x="175" y="161" width="175" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_located" translatesAutoresizingMaskIntoConstraints="NO" id="PjK-ue-PHs">
-                                <rect key="frame" x="350" y="191" width="25" height="25"/>
+                                <rect key="frame" x="350" y="171" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="22O-Kk-I8g"/>
                                     <constraint firstAttribute="width" secondItem="PjK-ue-PHs" secondAttribute="height" multiplier="1:1" id="KBK-ML-HtJ"/>
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aWv-Co-9Iu">
-                                <rect key="frame" x="0.0" y="276" width="375" height="391"/>
+                                <rect key="frame" x="0.0" y="256" width="375" height="347"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sfo-6B-j0I">
                                     <size key="itemSize" width="135" height="129"/>
@@ -140,17 +140,10 @@
                             <constraint firstItem="Yn5-tu-0X6" firstAttribute="top" secondItem="psQ-WR-iIG" secondAttribute="bottom" constant="2" id="wgf-dI-LRe"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="closeTime" destination="tWt-qg-hiy" id="t4o-c7-1Zj"/>
-                        <outlet property="collectionView" destination="aWv-Co-9Iu" id="Qh4-2n-8BO"/>
-                        <outlet property="infoSupplierView" destination="psQ-WR-iIG" id="sVO-24-3Sr"/>
-                        <outlet property="nameStoreView" destination="Ndi-Eh-E4c" id="aQD-yN-ZaH"/>
-                        <outlet property="openTime" destination="Yn5-tu-0X6" id="ST9-bb-9LV"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-215" y="-143"/>
+            <point key="canvasLocation" x="3631" y="-134"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Kqm-T6-9wg">
@@ -312,7 +305,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Địa điểm" id="jvI-tc-91c">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6Py-eL-gs3"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6Py-eL-gs3">
+                            <connections>
+                                <action selector="addLocation:" destination="7UD-Zv-X4X" id="F9i-hZ-aCw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="urJ-SY-gtm" id="zkf-PW-N6a"/>
@@ -355,15 +352,12 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="158" height="193"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_dontCheck" translatesAutoresizingMaskIntoConstraints="NO" id="7HF-L9-JYs">
-                                                    <rect key="frame" x="5" y="5" width="24" height="24"/>
+                                                    <rect key="frame" x="5" y="5" width="26" height="26"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="Zas-D1-L0j"/>
-                                                        <constraint firstAttribute="height" constant="24" id="gYG-oH-nP8"/>
+                                                        <constraint firstAttribute="width" constant="26" id="Zas-D1-L0j"/>
+                                                        <constraint firstAttribute="height" constant="26" id="gYG-oH-nP8"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGR-b2-7sG">
-                                                    <rect key="frame" x="5" y="5" width="24" height="24"/>
-                                                </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXQ-gX-aJQ">
                                                     <rect key="frame" x="0.0" y="163" width="158" height="30"/>
                                                     <subviews>
@@ -398,14 +392,10 @@
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="eGR-b2-7sG" firstAttribute="leading" secondItem="7HF-L9-JYs" secondAttribute="leading" id="2SH-9m-4EM"/>
                                             <constraint firstItem="rbj-TW-5a6" firstAttribute="leading" secondItem="jiD-WB-Xb3" secondAttribute="leading" id="67v-gb-q2q"/>
-                                            <constraint firstItem="eGR-b2-7sG" firstAttribute="bottom" secondItem="7HF-L9-JYs" secondAttribute="bottom" id="6d6-hD-b4M"/>
                                             <constraint firstAttribute="bottom" secondItem="rbj-TW-5a6" secondAttribute="bottom" id="9xK-Q9-Xzv"/>
                                             <constraint firstItem="rbj-TW-5a6" firstAttribute="top" secondItem="jiD-WB-Xb3" secondAttribute="top" id="KKA-MT-fN0"/>
-                                            <constraint firstItem="eGR-b2-7sG" firstAttribute="trailing" secondItem="7HF-L9-JYs" secondAttribute="trailing" id="Ul3-ue-amN"/>
                                             <constraint firstItem="dXQ-gX-aJQ" firstAttribute="leading" secondItem="jiD-WB-Xb3" secondAttribute="leading" id="YtC-sa-dvJ"/>
-                                            <constraint firstItem="eGR-b2-7sG" firstAttribute="top" secondItem="7HF-L9-JYs" secondAttribute="top" id="ZFh-t9-3d1"/>
                                             <constraint firstItem="7HF-L9-JYs" firstAttribute="top" secondItem="jiD-WB-Xb3" secondAttribute="top" constant="5" id="hP8-zN-eqv"/>
                                             <constraint firstAttribute="bottom" secondItem="dXQ-gX-aJQ" secondAttribute="bottom" id="u9O-3Z-0qh"/>
                                             <constraint firstItem="7HF-L9-JYs" firstAttribute="leading" secondItem="jiD-WB-Xb3" secondAttribute="leading" constant="5" id="wZT-M2-LXY"/>
@@ -443,6 +433,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="QnY-92-Pxv" id="kOY-ut-uqA"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="27N-XM-9AK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNE-lH-V6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>

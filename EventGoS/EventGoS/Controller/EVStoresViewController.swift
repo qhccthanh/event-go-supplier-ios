@@ -9,6 +9,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ESPullToRefresh
+import Toaster
 
 class EVStoresViewController: UIViewController {
 
@@ -29,18 +31,30 @@ class EVStoresViewController: UIViewController {
                 }
         })
         
-//        _ = EVSupplier.current!.rx.observe([EVImageResource].self, "images").subscribe(onNext: { (images) in
-//            print(images ?? nil)
-//        })
+        self.tableView.es_addPullToRefresh {
+            [weak self] in
+            self?.loadData()
+        }
     }
     
     func loadData() {
-        _ = EVLocationService.getAllSupplierLocation().subscribe(onNext: { (locations) in
-            print(locations)
+        _ = EVLocationService.getAllSupplierLocation()
+            .subscribe(onNext: {
+            [weak self] _ in
+            
+            self?.tableView.es_stopPullToRefresh(ignoreDate: true, ignoreFooter: false)
+            }, onError: {
+                [weak self] _ in
+                
+                self?.tableView.es_stopPullToRefresh(ignoreDate: true, ignoreFooter: false)
+                Toast.show("Tải dữ liệu thất bại vui lòng kiểm tra lại")
         })
-//        _ = EVImageServices.getAllSupplierImage().subscribe(onNext: { (images) in
-//            print(images)
-//        })
+    }
+    
+    @IBAction func addLocation(_ sender: AnyObject!) {
+        
+        let createStoreController = EVController.createStore.getController()
+        self.navigationController?.pushViewController(createStoreController, animated: true)
     }
 }
 

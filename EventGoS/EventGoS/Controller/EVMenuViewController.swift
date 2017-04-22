@@ -53,7 +53,18 @@ class EVMenuViewController: QuickTableViewController {
     
     func setupNavigationBar() {
         
-        let barButton = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_help"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(helpAction))
+//        let barButton = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_help"),
+//                                        style: UIBarButtonItemStyle.plain,
+//                                        target: self,
+//                                        action: #selector(helpAction))
+        let helpButton = UIButton(type: .custom).build({
+            $0.frame = CGRect(x: 0, y: 0, width: 26, height: 26)
+            $0.setBackgroundImage(#imageLiteral(resourceName: "ic_help"), for: .normal)
+            $0.addTarget(self, action: #selector(helpAction), for: .touchUpInside)
+        })
+        
+        let barButton = UIBarButtonItem(customView: helpButton)
+        
         self.navigationItem.rightBarButtonItems = [barButton]
     }
     

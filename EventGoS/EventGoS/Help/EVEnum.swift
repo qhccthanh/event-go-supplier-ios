@@ -43,7 +43,7 @@ enum EVController: String {
 //    case userInfo = "EVUpdateUserInfoViewController"
 //    case popOver = "EVPopOverController"
 //    case home = "EVHomeViewController"
-    case infoStore = "EVInfoStoreViewController"
+    case createStore = "EVCreateStoreViewController"
     case listImageStore = "EVListSupplierImageCollectionViewController"
     case main = "EVSupplierMainController"
     case root = "EVMainViewController"
