@@ -28,7 +28,7 @@ class EVImagesViewController: UIViewController, CPImageControllerProtocol {
         return DKImagePickerController()
     }()
     
-    var selectedBlock: ((_ images: EVImageResource) -> Void)?
+    var selectedBlock: ((_ images: [EVImageResource]) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +57,15 @@ class EVImagesViewController: UIViewController, CPImageControllerProtocol {
         super.viewWillDisappear(animated)
         
         if self.isMovingFromParentViewController {
+            
+            if let selectedBlock = self.selectedBlock {
+                let imageSelected = EVSupplier.current?.images.filter({
+                    return $0.isChecked == true
+                }) ?? []
+                
+                selectedBlock(imageSelected)
+            }
+            
             EVSupplier.current?.images.forEach({
                 $0.isChecked = false
             })
@@ -98,6 +107,10 @@ class EVImagesViewController: UIViewController, CPImageControllerProtocol {
     }
     
     func uploadImage(_ assets: [DKAsset]) {
+        
+        if assets.count == 0 {
+            return
+        }
         
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         hud.mode = .determinateHorizontalBar

@@ -19,6 +19,7 @@ class EVCreateStoreViewController: UIViewController {
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
     var locationManager = CLLocationManager()
+    var images: [EVImageResource] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +53,7 @@ extension EVCreateStoreViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? 1 : 0
+        return section == 0 ? 1 : images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -61,7 +62,9 @@ extension EVCreateStoreViewController: UICollectionViewDataSource {
             return collectionView.dequeueReusableCell(withReuseIdentifier: "AddImageCell", for: indexPath)
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoreImageCell", for: indexPath) as! EVImageStoreCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageStoreCell", for: indexPath) as! EVImageStoreCell
+        let image = images[indexPath.row]
+        cell.bindingUI(image)
         
         return cell
     }
@@ -87,6 +90,24 @@ extension EVCreateStoreViewController: UICollectionViewDelegate, UICollectionVie
         collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 3.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        
+        if indexPath.section == 0 {
+            let imageVC = EVController.images.getController() as! EVImagesViewController
+            
+            imageVC.selectedBlock = {
+                images in
+                
+                self.images = images
+                self.imageCollectionView.reloadSections(IndexSet.init(integer: 1))
+            }
+            
+            self.navigationController?.pushViewController(imageVC, animated: true)
+        }
+        
+        return false
     }
 }
 
