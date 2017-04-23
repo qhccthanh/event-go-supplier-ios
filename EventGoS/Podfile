@@ -28,6 +28,7 @@ target 'EventGoS' do
   pod 'XLActionController/Periscope'
   pod 'Toaster', '~> 2.0'
   pod 'ESPullToRefresh', '~> 2.6'
+  pod 'STPopup'
   # Pods for EventGoS
 
 end

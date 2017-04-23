@@ -17,6 +17,7 @@ enum EVSupplierAPI: String {
     case me = "suppliers/me"
     case logout = "suppliers/signout"
     case location = "suppliers/locations"
+    case locations = "locations"
     case image = "images"
     
     func path() -> String {

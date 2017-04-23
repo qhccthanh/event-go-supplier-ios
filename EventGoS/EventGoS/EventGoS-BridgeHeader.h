@@ -11,5 +11,6 @@
 
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "TMCache.h"
+#import <STPopup/STPopup.h>
 
 #endif /* EventGoS_BridgeHeader_h */

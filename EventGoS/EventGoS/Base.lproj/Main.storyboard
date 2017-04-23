@@ -43,10 +43,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psQ-WR-iIG" userLabel="Detail Input" customClass="AnimatedTextInput" customModule="AnimatedTextInput">
                                 <rect key="frame" x="0.0" y="77" width="375" height="45"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="nIW-Jj-LRk"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yn5-tu-0X6" userLabel="Address Input" customClass="AnimatedTextInput" customModule="AnimatedTextInput">
                                 <rect key="frame" x="0.0" y="130" width="375" height="45"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Vg3-gn-NUa"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXm-m3-JGR">
                                 <rect key="frame" x="0.0" y="183" width="375" height="85"/>
@@ -55,6 +61,9 @@
                                         <rect key="frame" x="122" y="0.0" width="132" height="34"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" title="Cập nhật toạ độ"/>
+                                        <connections>
+                                            <action selector="onDefineMyLocationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2j3-NS-s9v"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chưa được cập nhật" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njs-gV-KCP">
                                         <rect key="frame" x="131" y="29" width="114" height="15"/>
@@ -66,6 +75,9 @@
                                         <rect key="frame" x="128" y="44" width="119" height="32"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                         <state key="normal" title="Xem trên bản đồ"/>
+                                        <connections>
+                                            <action selector="onViewInMap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q86-cB-nSg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -187,14 +199,12 @@
                             <constraint firstItem="Yn5-tu-0X6" firstAttribute="trailing" secondItem="psQ-WR-iIG" secondAttribute="trailing" id="1yk-4H-aFn"/>
                             <constraint firstAttribute="trailing" secondItem="Ndi-Eh-E4c" secondAttribute="trailing" id="9ej-Oz-SNc"/>
                             <constraint firstItem="psQ-WR-iIG" firstAttribute="width" secondItem="Ndi-Eh-E4c" secondAttribute="width" id="Dc8-fK-g4z"/>
-                            <constraint firstItem="Yn5-tu-0X6" firstAttribute="height" secondItem="psQ-WR-iIG" secondAttribute="height" id="FpL-9K-xji"/>
                             <constraint firstItem="oXm-m3-JGR" firstAttribute="top" secondItem="Yn5-tu-0X6" secondAttribute="bottom" constant="8" id="JIO-mW-gft"/>
                             <constraint firstItem="oXm-m3-JGR" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="O4f-P8-7ns"/>
                             <constraint firstAttribute="trailing" secondItem="aWv-Co-9Iu" secondAttribute="trailing" id="SCw-KU-I4S"/>
                             <constraint firstItem="psQ-WR-iIG" firstAttribute="centerX" secondItem="Ndi-Eh-E4c" secondAttribute="centerX" id="SXT-cX-gRk"/>
                             <constraint firstItem="oXm-m3-JGR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XJk-dp-vzB"/>
                             <constraint firstItem="psQ-WR-iIG" firstAttribute="top" secondItem="Ndi-Eh-E4c" secondAttribute="bottom" constant="8" id="glI-qz-cjU"/>
-                            <constraint firstItem="psQ-WR-iIG" firstAttribute="height" secondItem="Ndi-Eh-E4c" secondAttribute="height" id="hJf-ea-v7T"/>
                             <constraint firstItem="aWv-Co-9Iu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hqW-zK-NAj"/>
                             <constraint firstItem="Ndi-Eh-E4c" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="iFH-rx-ENg"/>
                             <constraint firstItem="Ndi-Eh-E4c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jfL-FJ-tr8"/>
@@ -204,13 +214,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tạo địa điểm" id="hUd-j9-dv3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WdU-ze-EbC"/>
+                        <barButtonItem key="rightBarButtonItem" title="Hoàn tất" id="WdU-ze-EbC">
+                            <connections>
+                                <action selector="onPostAction:" destination="BYZ-38-t0r" id="VdY-gc-on7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addressInputView" destination="Yn5-tu-0X6" id="c4r-04-POg"/>
                         <outlet property="detailInputView" destination="psQ-WR-iIG" id="wwj-Xh-8tB"/>
+                        <outlet property="doneButton" destination="WdU-ze-EbC" id="BHA-qu-BDm"/>
                         <outlet property="imageCollectionView" destination="aWv-Co-9Iu" id="TMA-BI-e4F"/>
                         <outlet property="nameInputView" destination="Ndi-Eh-E4c" id="H0h-Ak-MLj"/>
+                        <outlet property="showMapButton" destination="ZGD-aM-Ory" id="hnf-re-KYF"/>
+                        <outlet property="updateDateLabel" destination="njs-gV-KCP" id="EcB-Xh-2fX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -239,7 +256,7 @@
         <scene sceneID="2cQ-pn-jHA">
             <objects>
                 <navigationController storyboardIdentifier="EVSupplierMainController" id="dB3-hK-aQE" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="AMz-PT-82F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="AMz-PT-82F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

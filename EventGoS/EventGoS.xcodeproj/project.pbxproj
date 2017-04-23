@@ -69,6 +69,7 @@
 		F4B4FFFD1EAA3642007DEE79 /* TMMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B4FFFA1EAA3642007DEE79 /* TMMemoryCache.m */; };
 		F4C9D2CC1EAA925600D85C6A /* CTDateFormart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9D2CB1EAA925600D85C6A /* CTDateFormart.swift */; };
 		F4C9D2CE1EABB51B00D85C6A /* EVGeocode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9D2CD1EABB51B00D85C6A /* EVGeocode.swift */; };
+		F4F64F8E1EAC902600C4144B /* EVMapPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F64F8D1EAC902600C4144B /* EVMapPopupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +144,7 @@
 		F4BE9B5F1EA910A400F856D9 /* EventGoS-BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EventGoS-BridgeHeader.h"; sourceTree = "<group>"; };
 		F4C9D2CB1EAA925600D85C6A /* CTDateFormart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTDateFormart.swift; sourceTree = "<group>"; };
 		F4C9D2CD1EABB51B00D85C6A /* EVGeocode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVGeocode.swift; sourceTree = "<group>"; };
+		F4F64F8D1EAC902600C4144B /* EVMapPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVMapPopupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +265,7 @@
 				F4B4FFEA1EA9387D007DEE79 /* EVImageStoreCell.swift */,
 				D0A836921EA4C34500AE890C /* EVInfoStoreCollectionViewCell.swift */,
 				D0A836961EA4FFB200AE890C /* EVItemStoreTableViewCell.swift */,
+				F4F64F8D1EAC902600C4144B /* EVMapPopupViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				F4B4FFFC1EAA3642007DEE79 /* TMDiskCache.m in Sources */,
 				D00ED2A31EA2418A00FC212A /* EVLoginAPI.swift in Sources */,
 				F4B4FFD11EA91EFC007DEE79 /* SkyFloatingLabelTextField.swift in Sources */,
+				F4F64F8E1EAC902600C4144B /* EVMapPopupViewController.swift in Sources */,
 				F4B4FFC81EA91EFC007DEE79 /* CrossDissolveAnimation.swift in Sources */,
 				F4B4FFCA1EA91EFC007DEE79 /* GradientImageView.swift in Sources */,
 				F4B4FFA01EA91553007DEE79 /* ExtentionString.swift in Sources */,

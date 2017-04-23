@@ -28,6 +28,9 @@ class CTDateFormart: NSObject {
     let weekly: Int
     let weekOfYear: Int
     let quarter: Int
+    let hour: Int
+    let minute: Int
+    let second: Int
     
     static var weekStringDictionary: Dictionary<Int,String>  {
         get {
@@ -62,7 +65,7 @@ class CTDateFormart: NSObject {
     required public init(date: Date = Date()) {
         
         self.date = date
-        calendar = Calendar.autoupdatingCurrent.dateComponents([.day,.weekday,.weekOfYear,.month,.year,.quarter], from: date)
+        calendar = Calendar.autoupdatingCurrent.dateComponents([.day,.weekday,.weekOfYear,.month,.year,.quarter,.hour,.minute,.second], from: date)
         
         day = calendar.day!
         month = calendar.month!
@@ -70,6 +73,9 @@ class CTDateFormart: NSObject {
         weekOfYear = calendar.weekOfYear!
         weekly = calendar.weekday!
         quarter = calendar.quarter!
+        hour = calendar.hour!
+        minute = calendar.minute!
+        second = calendar.second!
         
         super.init()
     }
@@ -79,6 +85,10 @@ class CTDateFormart: NSObject {
         let newStr = "\(weeklyStr), \(day) tháng \(month) năm \(year)"
         
         return newStr
+    }
+    
+    func fullString() -> String {
+        return "Lúc \(hour):\(minute):\(second) \(toString())"
     }
     
     func isSame(_ otherDate: Date, type: SortTimeType) -> Bool {

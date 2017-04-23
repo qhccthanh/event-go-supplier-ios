@@ -41,14 +41,14 @@ class EVLocationService: BaseService {
             "name": location.name ?? "",
             "detail": location.detail ?? "",
             "address": location.address ?? "",
-            "image_url": location.image_url ?? "",
-            "location_info": location.location_info ?? [:]
+            "image_url": location.image_url ?? [],
+            "location_info": location.location_info?.toJSON() ?? [:]
         ] as [String : Any]
         
         return Observable.create({
             (sub) -> Disposable in
             
-            sessionManager.request(EVSupplierAPI.location.path(),
+            sessionManager.request(EVSupplierAPI.locations.path(),
                                    method: .post,
                                    parameters: param,
                                    encoding: JSONEncoding.default,
@@ -63,6 +63,7 @@ class EVLocationService: BaseService {
                         let json = JSON(dataJSON)
                         let location = EVLocation.fromJson(data: json["data"])
                         sub.onNext(location)
+                        return
                     }
                     
                     sub.onError(NSError.defaultAPIError())
@@ -101,6 +102,7 @@ class EVLocationService: BaseService {
     }
     
     class func getLocationInfo(lat: Double, lng: Double) -> Observable<[EVGeocode]> {
+        
         return Observable.create({
             (sub) -> Disposable in
             
@@ -123,7 +125,7 @@ class EVLocationService: BaseService {
                     let geocodes = results.map {
                         return EVGeocode.fromJSON($0)
                     }
-                    return
+                    sub.onNext(geocodes)
                 }
                 
                 sub.onError(NSError.defaultAPIError())
@@ -138,8 +140,9 @@ class EVLocationService: BaseService {
         let baseURL = "https://maps.googleapis.com/maps/api/geocode/json"
         let latlng = "\(lat),\(lng)"
         let apiKey = "AIzaSyCRymVmfMFKrVCT3fn1El_KDQKSWA4rErQ"
+        let result = "\(baseURL)?latlng=\(latlng)&key=\(apiKey)"
         
-        return "\(baseURL)?latlng\(latlng)key=\(apiKey)"
+        return result
     }
 }
 

@@ -16,7 +16,12 @@ import Toaster
 import ESPullToRefresh
 
 fileprivate let reuseIdentifier = "ImageStoreCell"
-fileprivate let cellWidth = (UIScreen.main.bounds.width - 4) / 3 - 2
+
+let padding: CGFloat = 4
+let numberItemsPerLine: CGFloat = 3
+let miniumInterSpacing: CGFloat = 1
+
+fileprivate let cellWidth = (UIScreen.main.bounds.width - padding) / numberItemsPerLine - (miniumInterSpacing * (numberItemsPerLine - 1))
 let imageSize = CGSize(width: cellWidth, height: cellWidth * 1.25)
 
 class EVImagesViewController: UIViewController, CPImageControllerProtocol {
