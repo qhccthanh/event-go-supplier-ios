@@ -413,7 +413,7 @@
 				TargetAttributes = {
 					F44EA8741EA0C531001E04F9 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = A2NR73B2X5;
+						DevelopmentTeam = ZPV9U8ULVA;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -686,12 +686,15 @@
 			baseConfigurationReference = 63689E4A239EA40418DB9981 /* Pods-EventGoS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = A2NR73B2X5;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZPV9U8ULVA;
 				INFOPLIST_FILE = EventGoS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.eventgo.supplier1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eventgo.supplierapp.thanhqhc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EventGoS/EventGoS-BridgeHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -702,12 +705,15 @@
 			baseConfigurationReference = D160B5C9550B32FD45F2A4A8 /* Pods-EventGoS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = A2NR73B2X5;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZPV9U8ULVA;
 				INFOPLIST_FILE = EventGoS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.eventgo.supplier1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eventgo.supplierapp.thanhqhc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EventGoS/EventGoS-BridgeHeader.h";
 				SWIFT_VERSION = 3.0;
 			};

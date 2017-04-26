@@ -74,6 +74,15 @@ class LoginViewController: UIViewController, BackgroundMovable, KeyboardMovable 
         initKeyboardMover()
         initBackgroundMover()
         customizeAppearance()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(endEditing))
+        self.view.addGestureRecognizer(tapGesture)
+        self.backgroundImageView.addGestureRecognizer(tapGesture)
+        self.backgroundImageView.isUserInteractionEnabled = true
+    }
+    
+    func endEditing() {
+        self.view.endEditing(true)
     }
 
     override func loadView() {

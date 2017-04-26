@@ -44,7 +44,6 @@ class EVImageServices: BaseService {
                         sub.onError(NSError.defaultAPIError())
                         return
                 }
-                
                 let json = JSON(dataJSON)
                 let image = EVImageResource(data: json["data"])
                 sub.onNext(image)

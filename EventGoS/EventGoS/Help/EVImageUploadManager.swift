@@ -23,8 +23,8 @@ extension UIImage {
         
         let scaleWithWidth = size.height > size.width
         let newSizeOther = scaleWithWidth ? size.width * (maxSize/size.height) : size.height * (maxSize/size.width)
-        let newSize = CGSize(width: scaleWithWidth ? maxSize : newSizeOther,
-                             height: scaleWithWidth ? newSizeOther : maxSize)
+        let newSize = CGSize(width: scaleWithWidth ? newSizeOther : maxSize,
+                             height: scaleWithWidth ? maxSize : newSizeOther)
         UIGraphicsBeginImageContext(newSize)
         self.draw(in: CGRect(x:0, y:0, width:newSize.width, height:newSize.height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
