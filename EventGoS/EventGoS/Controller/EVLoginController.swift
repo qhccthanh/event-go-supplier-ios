@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import Toaster
 
 class LoginEVCoordinator: LoginCoordinator {
     
@@ -28,8 +29,8 @@ class LoginEVCoordinator: LoginCoordinator {
     func configureAppearance() {
         // Customize the look with background & logo images
 //        backgroundImage = #imageLiteral(resourceName: "Background")
-//        mainLogoImage = #imageLiteral(resourceName: "AppIcon")
-//        secondaryLogoImage = #imageLiteral(resourceName: "AppIcon")
+        mainLogoImage = #imageLiteral(resourceName: "EventGo-Logo")
+        secondaryLogoImage = #imageLiteral(resourceName: "EventGo-Logo")
         
         // Change colors
         tintColor = UIColor(red: 52.0/255.0, green: 152.0/255.0, blue: 219.0/255.0, alpha: 1)
@@ -51,6 +52,17 @@ class LoginEVCoordinator: LoginCoordinator {
     
     // Handle login via your API
     override func login(email: String, password: String) {
+        
+        if email.characters.count < 5 || password.characters.count > 5 {
+            Toast.show("Vui lòng nhập đẩy đủ tài khoản hoặc password")
+            return
+        }
+        
+        if email.contains(">") || email.contains("<") || password.contains(">") || password.contains("<") {
+            Toast.show("Ô không thể chứa các ký tự đặt biệt")
+            return
+        }
+        
         MBProgressHUD.showHUDLoading()
         print("Login with: email =\(email) password = \(password)")
         
@@ -61,9 +73,7 @@ class LoginEVCoordinator: LoginCoordinator {
         }, onError: { (error) in
             MBProgressHUD.hideHUDLoading()
             
-            let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
-            hud.label.text = "Đăng nhập thất bại"
-            hud.mode = .text
+            Toast.show("Đăng nhập thất bại")
         })
     }
     

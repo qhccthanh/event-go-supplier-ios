@@ -69,6 +69,12 @@ class EVCreateStoreViewController: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        self.view.endEditing(true)
+    }
+    
     func setupObserve() {
         
         guard  let nameTextField = nameInputView.textInput as? UITextField,
@@ -116,7 +122,9 @@ class EVCreateStoreViewController: UIViewController {
     
     @IBAction func onPostAction(_ sender: Any) {
         
+        self.view.endEditing(true)
         MBProgressHUD.showHUDLoading()
+        
         let location = EVLocation().build {
             $0.name = nameInputView.text!
             $0.detail = detailInputView.text!
