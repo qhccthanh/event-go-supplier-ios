@@ -53,7 +53,7 @@ class LoginEVCoordinator: LoginCoordinator {
     // Handle login via your API
     override func login(email: String, password: String) {
         
-        if email.characters.count < 5 || password.characters.count > 5 {
+        if email.characters.count < 5 || password.characters.count < 5 {
             Toast.show("Vui lòng nhập đẩy đủ tài khoản hoặc password")
             return
         }
