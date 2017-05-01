@@ -33,7 +33,7 @@ class LoginEVCoordinator: LoginCoordinator {
         secondaryLogoImage = #imageLiteral(resourceName: "EventGo-Logo")
         
         // Change colors
-        tintColor = UIColor(red: 52.0/255.0, green: 152.0/255.0, blue: 219.0/255.0, alpha: 1)
+        tintColor = UIColor(red: 0, green: 150.0/255, blue: 136.0/255, alpha: 1)
         errorTintColor = UIColor(red: 253.0/255.0, green: 227.0/255.0, blue: 167.0/255.0, alpha: 1)
         
         // Change placeholder & button texts, useful for different marketing style or language.

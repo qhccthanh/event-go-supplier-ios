@@ -13,7 +13,7 @@ enum ValidationError: String, Error {
 
     case invalidName = "Invalid name"
     case invalidEmail = "Invalid email address"
-    case passwordLength = "Must be at least 8 characters"
+    case passwordLength = "Mật khẩu phải lớn hơn 5 ký tự"
     case passwordNotEqual = "Password does not match"
 
     var message: String {
@@ -66,7 +66,7 @@ struct ValidationService {
 
     static var passwordRules: ValidationRuleSet<String> {
         var passwordRules = ValidationRuleSet<String>()
-        passwordRules.add(rule: ValidationRuleLength(min: 8, error: ValidationError.passwordLength))
+        passwordRules.add(rule: ValidationRuleLength(min: 6, error: ValidationError.passwordLength))
         return passwordRules
     }
 

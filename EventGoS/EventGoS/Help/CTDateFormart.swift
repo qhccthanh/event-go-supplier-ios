@@ -91,6 +91,10 @@ class CTDateFormart: NSObject {
         return "Lúc \(hour):\(minute):\(second) \(toString())"
     }
     
+    func daymonyear() -> String {
+        return  "\(day)-\(month)-\(year)"
+    }
+    
     func isSame(_ otherDate: Date, type: SortTimeType) -> Bool {
         
         let ctDate = CTDateFormart(date: otherDate)

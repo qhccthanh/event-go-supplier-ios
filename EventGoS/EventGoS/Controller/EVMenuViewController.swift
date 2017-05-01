@@ -65,7 +65,7 @@ class EVMenuViewController: QuickTableViewController {
         
         let barButton = UIBarButtonItem(customView: helpButton)
         
-        self.navigationItem.rightBarButtonItems = [barButton]
+//        self.navigationItem.rightBarButtonItems = [barButton]
     }
     
     func helpAction() {

@@ -26,7 +26,7 @@ class EVLocation: NSObject {
     class func fromJson(data: JSON) -> EVLocation {
         
         let location = EVLocation()
-        location.location_id = data["location_id"].stringValue
+        location.location_id = data["_id"].stringValue
         location.supplier_id = data["supplier_id"].stringValue
         location.name = data["name"].stringValue
         location.detail = data["detail"].stringValue
