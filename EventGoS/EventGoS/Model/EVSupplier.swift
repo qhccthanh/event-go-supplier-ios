@@ -13,12 +13,14 @@ class EVSupplier: NSObject {
 
     static var current: EVSupplier?
     
+    var id: String!
     var supplier_id: String!
     var name: String!
     var image_url: String?
     var level: Int = 1
     var company_info: NSDictionary?
     var status: String!
+    var username: String!
     var tags: [String]?
     
     dynamic var locations: [EVLocation] = []
@@ -28,11 +30,11 @@ class EVSupplier: NSObject {
         
         let supplier = EVSupplier()
         
+        supplier.id = data["_id"].stringValue
         supplier.supplier_id = data["supplier_id"].stringValue
         supplier.name = data["name"].stringValue
         supplier.image_url = data["image_urL"].stringValue
-        supplier.level = data["level"].intValue
-        supplier.company_info = data["company_info"].dictionaryObject as NSDictionary?
+        supplier.username = data["username"].stringValue
         supplier.status = data["status"].stringValue
         
         return supplier
