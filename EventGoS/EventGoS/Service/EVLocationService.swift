@@ -18,7 +18,7 @@ class EVLocationService: BaseService {
         return Observable.create({ (sub) -> Disposable in
             sub.onNext(EVSupplier.current!.locations)
             
-            sessionManager.request(EVSupplierAPI.location.path(), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: self.headers).responseJSON { (respone) in
+            sessionManager.request(EVSupplierAPI.locations.path(), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: self.headers).responseJSON { (respone) in
                 
                 if  let responeT = respone.response,
                     let dataJSON = respone.data,
@@ -73,12 +73,12 @@ class EVLocationService: BaseService {
         })
     }
     
-    class func deleteSupplierLocation() -> Observable<Bool> {
+    class func deleteSupplierLocation(_ location_id: String) -> Observable<Bool> {
         
         return Observable.create({
             (sub) -> Disposable in
             
-            sessionManager.request(EVSupplierAPI.location.path(),
+            sessionManager.request(EVSupplierAPI.locations.path().appending("/\(location_id)"),
                                    method: .delete,
                                    parameters: nil,
                                    encoding: JSONEncoding.default,

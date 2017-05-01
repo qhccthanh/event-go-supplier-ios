@@ -11,13 +11,27 @@ import RxSwift
 import RxCocoa
 import ESPullToRefresh
 import Toaster
+import MBProgressHUD
 
 class EVStoresViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var noItemLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        noItemLabel = UILabel().build({
+            self.tableView.addSubview($0)
+            $0.snp.makeConstraints({ (make) in
+                make.centerX.equalToSuperview()
+                make.centerY.equalToSuperview()
+            })
+            $0.text = "Không có dữ liệu :)"
+            $0.font = UIFont.boldSystemFont(ofSize: 25)
+            $0.textAlignment = .center
+            $0.isHidden = true
+        })
         
         if EVSupplier.current?.locations.count == 0 {
             loadData()
@@ -35,6 +49,7 @@ class EVStoresViewController: UIViewController {
             [weak self] in
             self?.loadData()
         }
+        
     }
     
     func loadData() {
@@ -65,7 +80,11 @@ extension EVStoresViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return EVSupplier.current?.locations.count ?? 0
+        
+        let count = EVSupplier.current?.locations.count ?? 0
+        self.noItemLabel.isHidden = count != 0
+        
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -113,6 +132,21 @@ extension EVStoresViewController: UITableViewDelegate {
         
         if editingStyle == .delete {
             
+            let location = EVSupplier.current!.locations[indexPath.row]
+            MBProgressHUD.showHUDLoading()
+            _ = EVLocationService.deleteSupplierLocation(location.location_id).subscribe(onNext: { (success) in
+                MBProgressHUD.hideHUDLoading()
+                if !success {
+                    Toast.show("Xoá địa điểm thất bại")
+                    return
+                }
+                
+                if let index = EVSupplier.current!.locations.index(of: location) {
+                    EVSupplier.current!.locations.remove(at: index)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+                Toast.show("Xoá địa điểm thành công")
+            })
         }
     }
 }

@@ -9,16 +9,17 @@
 import Foundation
 import Alamofire
 
-let kBaseUrl = "https://evgo.herokuapp.com/api/v1.0/"
+let kDebugUrl = "http://localhost:3000/api/v1.0/"
+let kMainUrl = "https://evgo.herokuapp.com/api/v1.0/"
+let kBaseUrl = kDebugUrl
 
 enum EVSupplierAPI: String {
     
-    case login = "suppliers/signin"
-    case me = "suppliers/me"
-    case logout = "suppliers/signout"
-    case location = "suppliers/locations"
-    case locations = "locations"
-    case image = "images"
+    case login = "staff/signin"
+    case me = "staff/me"
+    case logout = "staff/signout"
+    case locations = "staff/locations"
+    case image = "staff/images"
     
     func path() -> String {
         return kBaseUrl.appending(self.rawValue)

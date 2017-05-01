@@ -37,9 +37,11 @@ class EVCreateStoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
         locationManager.delegate = self
-        locationManager.distanceFilter = 2
+        locationManager.distanceFilter = 1
+        locationManager.requestWhenInUseAuthorization()
+        
+        setupView()
         updateLocation()
         setupObserve()
         
@@ -59,14 +61,14 @@ class EVCreateStoreViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if self.isMovingToParentViewController {
-            MBProgressHUD.showHUDLoading()
-            _ = Observable<Any>.empty().delay(2,scheduler: MainScheduler.instance)
-                .subscribe(onCompleted: {
-                    MBProgressHUD.hideHUDLoading()
-                    self.getAddresInfo()
-                })
-        }
+//        if self.isMovingToParentViewController {
+//            MBProgressHUD.showHUDLoading()
+//            _ = Observable<Any>.empty().delay(2,scheduler: MainScheduler.instance)
+//                .subscribe(onCompleted: {
+//                    MBProgressHUD.hideHUDLoading()
+//                    self.getAddresInfo()
+//                })
+//        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -113,6 +115,7 @@ class EVCreateStoreViewController: UIViewController {
     
     func setupView() {
         nameInputView.placeHolderText = "Tên Cửa Hàng"
+        nameInputView.type = .standard
         detailInputView.placeHolderText = "Mô tả cửa hàng"
         detailInputView.type = .multiline
         addressInputView.placeHolderText = "Địa chỉ cửa hàng"
@@ -203,6 +206,24 @@ class EVCreateStoreViewController: UIViewController {
     }
     
     func getAddresInfo() {
+        
+        if !CLLocationManager.locationServicesEnabled() {
+            UIApplication.shared.openURL(URL(string: "prefs:root=LOCATION_SERVICES")!)
+            return
+        }
+        
+        if CLLocationManager.authorizationStatus() == .denied {
+            
+            UIAlertController.showAlert("Bạn chưa cấp quyền vị trí vui lòng cấp quyền",
+                                        title: "Event Go",
+                                        sender: self,
+                                        doneAction: {
+                                            _ in
+                                            UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+            }, cancelAction: nil)
+            
+            return
+        }
         
         guard let location = self.locationLoaded else {
             Toast.show("Bạn chưa có toạ độ vui lòng kiểm tra lại")
@@ -316,6 +337,12 @@ extension EVCreateStoreViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            self.getAddresInfo()
+        }
     }
 }
 

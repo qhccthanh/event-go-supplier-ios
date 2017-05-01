@@ -14,6 +14,7 @@ import CPImageViewer
 import XLActionController
 import Toaster
 import ESPullToRefresh
+import SnapKit
 
 fileprivate let reuseIdentifier = "ImageStoreCell"
 
@@ -28,6 +29,7 @@ class EVImagesViewController: UIViewController, CPImageControllerProtocol {
 
     @IBOutlet weak var collectionView: UICollectionView!
     weak var animationImageView: UIImageView!
+    var noItemLabel: UILabel!
     
     lazy var pickerController: DKImagePickerController = {
         return DKImagePickerController()
@@ -37,6 +39,19 @@ class EVImagesViewController: UIViewController, CPImageControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        noItemLabel = UILabel().build({
+            self.collectionView.addSubview($0)
+            $0.snp.makeConstraints({ (make) in
+                make.centerX.equalToSuperview()
+                make.centerY.equalToSuperview()
+            })
+            $0.text = "Không có dữ liệu :)"
+            $0.font = UIFont.boldSystemFont(ofSize: 25)
+            $0.textAlignment = .center
+            $0.isHidden = true
+        })
+
         
         if EVSupplier.current?.images.count == 0 {
             loadData()
@@ -56,6 +71,7 @@ class EVImagesViewController: UIViewController, CPImageControllerProtocol {
             [weak self] in
             self?.loadData()
         }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -154,7 +170,11 @@ extension EVImagesViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return EVSupplier.current?.images.count ?? 0
+        
+        let count = EVSupplier.current?.images.count ?? 0
+        self.noItemLabel.isHidden = count != 0
+        
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
