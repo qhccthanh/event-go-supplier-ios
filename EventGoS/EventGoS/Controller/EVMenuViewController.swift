@@ -15,8 +15,18 @@ class EVMenuViewController: QuickTableViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        guard let staff = EVSupplier.current else {
+            
+            return
+        }
         tableContents = [
-            Section(title: nil, rows: [
+            Section(title: "Thông tin", rows: [
+                NavigationRow(title: staff.name, subtitle: .belowTitle(staff.username),
+                              icon: Icon(url: URL(string: staff.image_url ?? ""), placeHolderImage: UIImage(named: "ic_team")), action: { (_) in
+                    
+                })
+            ]),
+            Section(title: "Chức năng nhân viên", rows: [
                 NavigationRow(title: "Địa điểm", subtitle: .belowTitle("Danh sách thông tin địa điểm của hệ thống"), icon: Icon(image: #imageLiteral(resourceName: "ic_location")), action: { (_) in
                     let storeInfo = EVController.stores.getController()
                     self.navigationController?.pushViewController(storeInfo, animated: true)
